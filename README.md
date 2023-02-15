@@ -1,1 +1,1 @@
-# TreatyAndroidApp
+# StreakyAndroidApp
