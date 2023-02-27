@@ -1,15 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.github.linkav20.streaky"
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -29,14 +31,43 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.0'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation libs.coroutines
+    implementation libs.coreKtx
+    implementation libs.appCompat
+    implementation libs.material
+    implementation libs.constraintLayout
+    implementation libs.fragment
+    implementation libs.lifecycleViewmodel
+    implementation libs.lifecycleLivedata
+    implementation libs.navigationFragment
+    implementation libs.navigationUI
+    kapt libs.lifecycleCompiler
+
+    implementation libs.adapterDelegates
+    implementation libs.adapterDelegatesViewBinding
+
+    implementation libs.glide
+    kapt libs.glideCompiler
+
+    implementation libs.dagger
+    kapt libs.daggerCompiler
+
+    implementation libs.shimmer
+
+    implementation libs.glassmorphism
+
+    implementation libs.room
+    kapt libs.roomCompiler
+    implementation libs.roomKtx
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
