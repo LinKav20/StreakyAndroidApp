@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Streaky</string>
+
+    // Authorization texts
+    <string name="login_title">LOGIN</string>
+    <string name="sign_in_title">SIGNIN</string>
+    <string name="login_button">Log in</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="login_hint">Enter your login</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="forgot_password_text"><u>Forgot your password?</u></string>
+
 </resources>

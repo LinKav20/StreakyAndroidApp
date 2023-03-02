@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_lavender_to_orange"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sign_in_button"
+        style="@style/SecondaryTitle"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin"
+
+        android:clickable="true"
+        android:gravity="end"
+
+        android:text="@string/sign_in_button" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_textview"
+        style="@style/AccentTitle"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin"
+        android:gravity="center"
+
+        android:paddingTop="80dp"
+
+        android:text="@string/login_title" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/login_edittext"
+        style="@style/authEditText"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/auth_edittext"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/auth_edittext"
+
+        android:hint="@string/login_hint"
+        android:inputType="textEmailAddress|textPersonName"
+        android:lines="1"
+
+        android:maxLines="1"
+        android:paddingStart="@dimen/start_text_edittext" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/password_edittext"
+        style="@style/authEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/auth_edittext"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/auth_edittext"
+
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        android:lines="1"
+
+        android:maxLines="1"
+        android:paddingStart="@dimen/start_text_edittext" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button"
+        style="@style/authButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/auth_edittext"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/auth_edittext"
+
+        android:text="@string/login_button" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/forgot_password_button"
+        style="@style/TextButton"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:clickable="true"
+        android:gravity="center"
+
+        android:text="@string/forgot_password_text" />
+
+</LinearLayout>

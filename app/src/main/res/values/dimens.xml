@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Auth layouts
+    <dimen name="layout_margin">20dp</dimen>
+    <dimen name="auth_edittext">58dp</dimen>
+    <dimen name="start_text_edittext">10dp</dimen>
+</resources>
