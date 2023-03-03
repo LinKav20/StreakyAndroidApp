@@ -293,7 +293,7 @@
                 style="@style/blurViewBase"
 
                 android:layout_width="match_parent"
-                android:layout_height="240dp">
+                android:layout_height="160dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/punishment_edittext"
@@ -305,7 +305,7 @@
 
                     android:inputType="textMultiLine"
 
-                    android:minHeight="200dp" />
+                    android:minHeight="160dp" />
             </eightbitlab.com.blurview.BlurView>
 
             <androidx.appcompat.widget.AppCompatTextView
