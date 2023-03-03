@@ -1,5 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Streaky" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -15,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="authEditText" parent="Widget.AppCompat.EditText">
+    <style name="whiteEdittext" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/neue_machina_regular</item>
         <item name="android:textSize">16sp</item>
@@ -26,6 +25,12 @@
         <item name="android:textCursorDrawable">@drawable/cursor_color</item>
     </style>
 
+    <style name="creationEdittext" parent="whiteEdittext">
+        <item name="android:gravity">top</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
     <style name="authButton" parent="Widget.AppCompat.Button">
         <item name="android:fontFamily">@font/le_murmure_regular</item>
         <item name="android:textColor">@color/orange</item>
@@ -34,6 +39,22 @@
         <item name="android:background">@drawable/bg_button_auth</item>
     </style>
 
+    <style name="blurViewBase">
+        <item name="blurOverlayColor">@color/colorOverlay</item>
+    </style>
 
+    <style name="blueViewRepeatTime" parent="blurViewBase">
+        <item name="android:layout_width">@dimen/button_repeat_size</item>
+        <item name="android:layout_height">@dimen/button_repeat_size</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+
+    <style name="buttonRepeatTime" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/neue_machina_regular</item>
+    </style>
 
 </resources>

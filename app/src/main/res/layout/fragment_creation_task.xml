@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="@drawable/bg_lavender_to_orange_rotated">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_lavender_to_orange_rotated"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/layout_margin"
+            android:layout_marginEnd="@dimen/layout_margin"
+
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/creation_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/back_arrow_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/back_arrow" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/creation_title"
+                    style="@style/AccentTitleLow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin"
+                    android:gravity="center"
+                    android:text="@string/creation_title_before" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_textview"
+                style="@style/CreationTitles"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:text="@string/title_title" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_edittext"
+                style="@style/whiteEdittext"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:hint="@string/title_hint"
+                android:lines="1"
+
+                android:maxLines="1"
+                android:paddingStart="@dimen/start_text_edittext" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/do_until_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/do_until_textview"
+                    style="@style/CreationTitles"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+
+                    android:text="@string/do_until_title" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/do_until_button"
+                    style="@style/CreationNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="3dp"
+                    android:clickable="true"
+
+                    android:gravity="end"
+
+                    android:text="@string/temp_date" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/repeat_textview"
+                style="@style/CreationTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:text="@string/repeat_title" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/repeat_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/repeat_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="start"
+                    android:orientation="horizontal">
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/monday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/monday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/monday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/tuesday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/tuesday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/tuesday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/wednesday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/wednesday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/wednesday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/thursday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/thursday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/thursday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/friday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/friday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/friday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/saturday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/saturday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/saturday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+                    <eightbitlab.com.blurview.BlurView
+                        android:id="@+id/sunday_blurview"
+                        style="@style/blueViewRepeatTime">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/sunday_button"
+                            style="@style/buttonRepeatTime"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="@string/sunday_abb" />
+                    </eightbitlab.com.blurview.BlurView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/notify_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/notify_textview"
+                    style="@style/CreationSubtitles"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="@string/notify_title" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/notify_button"
+                    style="@style/CreationNumber"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:gravity="end"
+
+                    android:text="@string/temp_time" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/notify_switcher"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/punishment_textview"
+                style="@style/CreationTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:text="@string/punishment_title" />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/punishment_blurview"
+                style="@style/blurViewBase"
+
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/punishment_edittext"
+                    style="@style/creationEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="@string/punishment_hint"
+
+                    android:inputType="textMultiLine"
+
+                    android:minHeight="200dp" />
+            </eightbitlab.com.blurview.BlurView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/observe_textview"
+                style="@style/CreationTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+
+                android:text="@string/observe_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/friend_observer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginTop="@dimen/layout_margin">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/friend_textview"
+                    style="@style/CreationNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/observe_friend_subtitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/friend_imageview"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    android:background="@color/white_opacity_60"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/friend_textview" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/friend_observer_edittext"
+                    style="@style/whiteEdittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    android:hint="@string/observe_friend_hint"
+                    android:lines="1"
+
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/start_text_edittext"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/friend_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/friend_textview" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stranger_observer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginTop="@dimen/layout_margin">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/stranger_textview"
+                    style="@style/CreationNumber"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/observe_stranger_subtitle"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/stranger_imageview"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    android:background="@color/white_opacity_60"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stranger_textview" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/stranger_observer_edittext"
+                    style="@style/whiteEdittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    android:hint="@string/observe_stranger_hint"
+                    android:lines="1"
+
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/start_text_edittext"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/stranger_imageview"
+                    app:layout_constraintTop_toBottomOf="@+id/stranger_textview" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sign_up_button"
+        style="@style/authButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:layout_marginBottom="46dp"
+
+        android:text="@string/create_button"
+        android:textColor="@color/lavender"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

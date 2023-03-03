@@ -3,11 +3,44 @@
 
     // Authorization texts
     <string name="login_title">LOGIN</string>
-    <string name="sign_in_title">SIGNIN</string>
+    <string name="sign_up_title">SIGNUP</string>
     <string name="login_button">Log in</string>
-    <string name="sign_in_button">Sign in</string>
+    <string name="sign_up_button">Sign up</string>
     <string name="login_hint">Enter your login</string>
     <string name="password_hint">Enter your password</string>
     <string name="forgot_password_text"><u>Forgot your password?</u></string>
+    <string name="email_hint">Enter your email</string>
+    <string name="repeat_password_hint">Repeat your password</string>
+    <string name="reset_title">RESET</string>
+    <string name="password_title">PASSWORD</string>
+    <string name="code_hint">Enter the code</string>
+    <string name="reset_button">Reset password</string>
+    <string name="change_password_button">Change password</string>
+
+    // Creation fragment
+    <string name="creation_title_before">CREATION</string>
+    <string name="creation_title_after">Creation</string>
+    <string name="title_title">Title</string>
+    <string name="title_hint">Title of your task</string>
+    <string name="do_until_title">Do until</string>
+    <string name="repeat_title">Repeat</string>
+    <string name="monday_abb">M</string>
+    <string name="tuesday_abb">Tu</string>
+    <string name="wednesday_abb">W</string>
+    <string name="thursday_abb">Th</string>
+    <string name="friday_abb">F</string>
+    <string name="saturday_abb">Sa</string>
+    <string name="sunday_abb">S</string>
+    <string name="notify_title">Notify me</string>
+    <string name="punishment_title">Punishment</string>
+    <string name="punishment_hint">If you don\'t fulfill your treaty, then you…</string>
+    <string name="observe_title">Observers</string>
+    <string name="observe_friend_subtitle">Friend</string>
+    <string name="observe_stranger_subtitle">Stranger</string>
+    <string name="observe_friend_hint">Friend\'s nickname</string>
+    <string name="observe_stranger_hint">Stranger\'s nickname</string>
+    <string name="temp_date">21.11.2002</string>
+    <string name="temp_time">23:15</string>
+    <string name="create_button">Create</string>
 
 </resources>

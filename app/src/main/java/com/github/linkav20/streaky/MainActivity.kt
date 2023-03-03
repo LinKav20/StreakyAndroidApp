@@ -1,33 +1,66 @@
 package com.github.linkav20.streaky
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.github.linkav20.streaky.databinding.LoginLayoutBinding
+import com.github.linkav20.streaky.databinding.ActivityMainBinding
+import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
+import com.github.linkav20.streaky.databinding.FragmentLoginBinding
+import com.github.linkav20.streaky.databinding.FragmentSignupBinding
+import eightbitlab.com.blurview.RenderScriptBlur
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: LoginLayoutBinding
+    private lateinit var binding: FragmentCreationTaskBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(LoginLayoutBinding.inflate(layoutInflater).also { binding = it }.root)
-        fullscreen()
+        setContentView(
+            FragmentCreationTaskBinding.inflate(layoutInflater).also { binding = it }.root
+        )
 
+    /* binding.blurView.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
+             .setBlurRadius(15f)
+             .setBlurAutoUpdate(true)
 
-       // binding.blurView.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
-       //    .setBlurRadius(15f)
-       //    .setBlurAutoUpdate(true)
+         binding.button.setOnClickListener {
+             Toast.makeText(this,"Clicked!",Toast.LENGTH_SHORT).show()
+         }*/
     }
 
-    private fun fullscreen(){
+    @SuppressLint("ResourceAsColor")
+    override fun onStart() {
+        super.onStart()
+        fullscreen()
+        val blurs = arrayOf(
+            binding.fridayBlurview,
+            binding.mondayBlurview,
+            binding.tuesdayBlurview,
+            binding.wednesdayBlurview,
+            binding.thursdayBlurview,
+            binding.saturdayBlurview,
+            binding.sundayBlurview,
+            binding.punishmentBlurview
+        )
+
+        for (blur in blurs) {
+           blur.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
+                .setBlurRadius(25f)
+                .setBlurAutoUpdate(true)
+            //blur.setBackgroundColor(R.color.lavender)
+        }
+    }
+
+    private fun fullscreen() {
         supportActionBar?.hide()
 
 
