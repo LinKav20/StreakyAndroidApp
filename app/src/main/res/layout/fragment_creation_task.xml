@@ -293,7 +293,9 @@
                 style="@style/blurViewBase"
 
                 android:layout_width="match_parent"
-                android:layout_height="160dp">
+                android:layout_height="160dp"
+
+                android:background="@drawable/rounded_corners">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/punishment_edittext"
@@ -439,5 +441,6 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

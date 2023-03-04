@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.ViewOutlineProvider
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
@@ -28,13 +29,13 @@ class MainActivity : AppCompatActivity() {
             FragmentCreationTaskBinding.inflate(layoutInflater).also { binding = it }.root
         )
 
-    /* binding.blurView.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
-             .setBlurRadius(15f)
-             .setBlurAutoUpdate(true)
+        /* binding.blurView.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
+                 .setBlurRadius(15f)
+                 .setBlurAutoUpdate(true)
 
-         binding.button.setOnClickListener {
-             Toast.makeText(this,"Clicked!",Toast.LENGTH_SHORT).show()
-         }*/
+             binding.button.setOnClickListener {
+                 Toast.makeText(this,"Clicked!",Toast.LENGTH_SHORT).show()
+             }*/
     }
 
     @SuppressLint("ResourceAsColor")
@@ -53,10 +54,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         for (blur in blurs) {
-           blur.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
+            blur.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlu
+                .setFrameClearDrawable(window.decorView.background)
                 .setBlurRadius(25f)
                 .setBlurAutoUpdate(true)
             //blur.setBackgroundColor(R.color.lavender)
+            blur.outlineProvider = ViewOutlineProvider.BACKGROUND
+            blur.clipToOutline = true
         }
     }
 

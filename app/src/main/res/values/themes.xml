@@ -47,6 +47,7 @@
         <item name="android:layout_width">@dimen/button_repeat_size</item>
         <item name="android:layout_height">@dimen/button_repeat_size</item>
         <item name="android:layout_margin">6dp</item>
+        <item name="android:background">@drawable/rounded_corners</item>
     </style>
 
     <style name="buttonRepeatTime" parent="Widget.AppCompat.Button">
