@@ -5,4 +5,5 @@
     <dimen name="auth_edittext">58dp</dimen>
     <dimen name="start_text_edittext">10dp</dimen>
     <dimen name="button_repeat_size">50dp</dimen>
+    <dimen name="png_button_height">64dp</dimen>
 </resources>

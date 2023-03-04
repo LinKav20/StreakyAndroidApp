@@ -1,6 +1,7 @@
 package com.github.linkav20.streaky
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -25,6 +26,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+        window.statusBarColor = Color.TRANSPARENT
+
         setContentView(
             FragmentCreationTaskBinding.inflate(layoutInflater).also { binding = it }.root
         )
@@ -41,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("ResourceAsColor")
     override fun onStart() {
         super.onStart()
-        fullscreen()
+        //fullscreen()
         val blurs = arrayOf(
             binding.fridayBlurview,
             binding.mondayBlurview,
@@ -61,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             //blur.setBackgroundColor(R.color.lavender)
             blur.outlineProvider = ViewOutlineProvider.BACKGROUND
             blur.clipToOutline = true
+            blur.elevation = 10F
         }
     }
 

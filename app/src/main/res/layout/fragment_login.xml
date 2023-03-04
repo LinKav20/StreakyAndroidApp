@@ -74,15 +74,14 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/login_button"
-                style="@style/authButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/png_button_height"
 
                 android:layout_marginStart="@dimen/auth_edittext"
                 android:layout_marginTop="@dimen/layout_margin"
                 android:layout_marginEnd="@dimen/auth_edittext"
 
-                android:text="@string/login_button" />
+                android:background="@drawable/login_button" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/forgot_password_button"
