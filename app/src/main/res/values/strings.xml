@@ -43,4 +43,9 @@
     <string name="temp_time">23:15</string>
     <string name="create_button">Create</string>
 
+    // Profile Fragment
+    <string name="nickname">Nickname</string>
+    <string name="some_text">Maybe some text?</string>
+    <string name="notifications_title">Notifications</string>
+
 </resources>
