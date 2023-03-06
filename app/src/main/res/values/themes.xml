@@ -58,4 +58,13 @@
         <item name="android:fontFamily">@font/neue_machina_regular</item>
     </style>
 
+    <style name="profileCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">@dimen/profile_cards_wight</item>
+        <item name="android:layout_height">@dimen/profile_cards_height</item>
+        <item name="cardElevation">@dimen/profile_cards_elevation</item>
+        <item name="strokeColor">@color/lavender</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">10dp</item>
+    </style>
+
 </resources>

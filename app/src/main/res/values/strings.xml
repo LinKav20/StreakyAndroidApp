@@ -47,5 +47,9 @@
     <string name="nickname">Nickname</string>
     <string name="some_text">Maybe some text?</string>
     <string name="notifications_title">Notifications</string>
+    <string name="notification_lorem"><b>Nickname</b> want you to become it’s observer</string>
+    <string name="temp_number">14</string>
+    <string name="observers_subtitle">observers</string>
+    <string name="tasks_subtitle">treaties</string>
 
 </resources>

@@ -10,4 +10,7 @@
     <dimen name="profile_image_size">100dp</dimen>
     <dimen name="create_image_size">50dp</dimen>
     <dimen name="layout_margin_blurview_elevation">10dp</dimen>
+    <dimen name="profile_cards_wight">82dp</dimen>
+    <dimen name="profile_cards_height">60dp</dimen>
+    <dimen name="profile_cards_elevation">10dp</dimen>
 </resources>

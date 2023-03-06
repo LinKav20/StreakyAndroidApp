@@ -16,7 +16,7 @@ import eightbitlab.com.blurview.RenderScriptBlur
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: FragmentCreationTaskBinding
+    private lateinit var binding: FragmentUserProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         setContentView(
-            FragmentCreationTaskBinding.inflate(layoutInflater).also { binding = it }.root
+            FragmentUserProfileBinding.inflate(layoutInflater).also { binding = it }.root
         )
 
         /* binding.blurView.setupWith(binding.root, RenderScriptBlur(this)) // or RenderEffectBlur
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         //fullscreen()
-       val blurs = arrayOf(
+      /* val blurs = arrayOf(
             /*binding.fridayBlurview,
             binding.mondayBlurview,
             binding.tuesdayBlurview,
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             }
             blur.clipToOutline = true
             blur.elevation = 10F
-        }
+        }*/
     }
 
     private fun fullscreen() {
