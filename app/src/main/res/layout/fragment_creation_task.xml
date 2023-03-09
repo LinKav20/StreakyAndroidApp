@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_lavender_to_orange_rotated"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    tools:context=".ui.creationtask.CreationTaskFragment">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

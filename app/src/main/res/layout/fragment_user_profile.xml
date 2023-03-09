@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_lavender"
-    android:clipToPadding="false">
+    android:clipToPadding="false"
+    tools:context="ui.userprofile.UserProfileFragment">
 
     <RelativeLayout
         android:id="@+id/profile_image_layout"
