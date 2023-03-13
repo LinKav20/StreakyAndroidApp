@@ -52,4 +52,7 @@
     <string name="observers_subtitle">observers</string>
     <string name="tasks_subtitle">treaties</string>
 
+    // Tasks List
+    <string name="title_my_list">Today</string>
+
 </resources>

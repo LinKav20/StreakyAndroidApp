@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_lavender_rotated"
+    tools:context=".ui.">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_textview"
+        style="@style/AccentTitleLow"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+
+        android:text="@string/title_my_list"
+        android:textColor="@color/black"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tasks_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:layout_margin="@dimen/layout_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_textview"
+        tools:listitem="@layout/my_task_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

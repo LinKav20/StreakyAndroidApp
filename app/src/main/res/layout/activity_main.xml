@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,52 +5,38 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/bg_lavender_to_orange_rotated"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
 
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        app:blurOverlayColor="@color/colorOverlay"
-        android:background="@drawable/rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
 
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
 
+        app:lottie_rawRes="@raw/loading"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-       <androidx.appcompat.widget.AppCompatButton
-           android:id="@+id/button"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="HI"
-           android:textColor="@color/white"
-           android:background="@android:color/transparent"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
 
-        </LinearLayout>
+        android:name="androidx.navigation.fragment.NavHostFragment"
 
-    </eightbitlab.com.blurview.BlurView>
-
-    <Button
-        android:id="@+id/button1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello!!!"
-        android:layout_margin="40dp"
-        android:outlineProvider="bounds"
-        android:elevation="10dp"
-        android:textSize="30sp"
+        android:layout_height="match_parent"
+
+        android:visibility="gone"
+
+        app:defaultNavHost="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/blurView" />
+        app:navGraph="@navigation/auth_nav_graph" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

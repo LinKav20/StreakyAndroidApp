@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeColor="@color/lavender"
+    app:strokeWidth="10dp"
+    android:layout_margin="@dimen/layout_margin">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/star_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+
+        android:background="@android:color/transparent"
+        android:src="@drawable/lavender_star_1x" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_textview"
+        style="@style/CreationSubtitles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/layout_margin"
+        android:text="Lollilol"
+        android:textColor="@color/black" />
+</androidx.cardview.widget.CardView>
