@@ -8,37 +8,33 @@ import android.os.Handler
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class MainActivity : AppCompatActivity() {
-
-    val preferences: SharedPreferences by lazy {
-        getSharedPreferences(
-            USER_PREFERENCES,
-            Context.MODE_PRIVATE
-        )
-    }
+class AppActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fullscreen()
+        //fullscreen()
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
-        binding.animationView.visibility = View.VISIBLE
+        //binding.animationView.visibility = View.VISIBLE
     }
 
     override fun onStart() {
         super.onStart()
-        Handler().postDelayed({
-            getUserData()
-        }, 1000)
 
         /*val editor = preferences.edit()
         editor.putString(USER_PREFERENCES_LOGIN, null)
@@ -55,27 +51,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAuthNavigation() {
-        val myNavHostFragment =
+        /*val myNavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val inflater = myNavHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.auth_nav_graph)
         myNavHostFragment.navController.graph = graph
         binding.navHostFragment.visibility = View.VISIBLE
-        binding.animationView.visibility = View.GONE
+        binding.animationView.visibility = View.GONE*/
     }
 
     private fun setMainNavigation() {
-        val myNavHostFragment =
+       /* val myNavHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val inflater = myNavHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.main_nav_graph)
         myNavHostFragment.navController.graph = graph
         binding.navHostFragment.visibility = View.VISIBLE
-        binding.animationView.visibility = View.GONE
+        binding.animationView.visibility = View.GONE*/
     }
 
     private fun getUserData() {
-        val login = preferences.getString(USER_PREFERENCES_LOGIN, null)
+       /* val login = preferences.getString(USER_PREFERENCES_LOGIN, null)
         val password = preferences.getString(USER_PREFERENCES_PASSWORD, null)
 
         if (login != null && password != null) {
@@ -83,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             setMainNavigation()
         } else {
             setAuthNavigation()
-        }
+        }*/
     }
 }
 

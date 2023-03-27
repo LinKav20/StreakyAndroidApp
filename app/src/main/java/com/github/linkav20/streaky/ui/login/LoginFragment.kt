@@ -41,7 +41,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.passwordEdittext.text.toString()
                 )
             )
-                findNavController().navigate(R.id.action_loginFragment_to_main_graph)
+                //findNavController().navigate(R.id.action_loginFragment_to_main_graph)
             else
                 tmpSnackbar()
         }
@@ -51,11 +51,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun setDirections() {
         binding.signInButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+            //findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
         binding.forgotPasswordButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+            //findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
         }
     }
 

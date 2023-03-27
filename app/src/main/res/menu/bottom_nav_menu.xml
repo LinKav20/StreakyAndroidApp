@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/lavender_star"
+        android:title="profile" />
+
+    <item
+        android:id="@+id/menu_friends"
+        android:icon="@drawable/lavender_star"
+        android:title="friends" />
+
+    <item
+        android:id="@+id/menu_tasks"
+        android:icon="@drawable/lavender_star"
+        android:title="tasks" />
+
+    <item
+        android:id="@+id/menu_create"
+        android:icon="@drawable/lavender_star"
+        android:title="create" />
+
+</menu>

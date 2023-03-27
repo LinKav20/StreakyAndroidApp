@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_lavender_rotated"
-    tools:context=".ui.mytaskslist.MyTasksListFragment">
+    tools:context=".ui.myfriendtaskslist.MyFriendTasksListFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title_textview"
