@@ -63,7 +63,7 @@ class MainFragment : Fragment(R.layout.fragment_tasks_list) {
                 //if (fragment is CreationTaskFragment) navigation.visibility = View.GONE
 
                 activity?.supportFragmentManager?.beginTransaction()
-                    ?.add(R.id.nav_host_fragment_activity_main, fragment)
+                    ?.add(R.id.main_layout, fragment)
                     //?.addToBackStack(null)
                     ?.commit()
                 Log.d("MY", "goto: ${fragment})")

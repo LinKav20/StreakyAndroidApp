@@ -38,7 +38,7 @@ class AppActivity : AppCompatActivity() {
         //binding.authFragmentContainerView.visibility = View.GONE
         //binding.mainFragmentContainerView.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_activity_main, MainFragment()).commit()
+            .replace(R.id.auth_navigation, MainFragment()).commit()
     }
 
     override fun onStart() {
