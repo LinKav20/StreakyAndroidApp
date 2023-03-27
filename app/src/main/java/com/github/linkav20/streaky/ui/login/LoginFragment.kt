@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentLoginBinding
+import com.github.linkav20.streaky.ui.AppActivity
 import com.github.linkav20.streaky.utils.SharedPreferences
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
@@ -40,9 +41,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.loginEdittext.text.toString(),
                     binding.passwordEdittext.text.toString()
                 )
-            )
-                //findNavController().navigate(R.id.action_loginFragment_to_main_graph)
-            else
+            ) {
+                val act = activity
+                if (act is AppActivity) {
+                    act.gotoMainFragment()
+                }
+            } else
                 tmpSnackbar()
         }
 
@@ -51,11 +55,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun setDirections() {
         binding.signInButton.setOnClickListener {
-            //findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
         binding.forgotPasswordButton.setOnClickListener {
-            //findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_resetPasswordFragment)
         }
     }
 

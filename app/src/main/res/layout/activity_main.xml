@@ -7,10 +7,9 @@
 
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.github.linkav20.streaky.ui.main.MainFragment"
+        android:id="@+id/auth_fragmentContainerView"
+        android:name="com.github.linkav20.streaky.ui.mainauth.MainAuthFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="324dp" />
+        android:layout_height="match_parent"/>
+
 </FrameLayout>

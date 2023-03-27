@@ -3,6 +3,7 @@ package com.github.linkav20.streaky.ui.main
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,10 +59,14 @@ class MainFragment : Fragment(R.layout.fragment_tasks_list) {
             }
 
             if (fragment != null) {
+
+                //if (fragment is CreationTaskFragment) navigation.visibility = View.GONE
+
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.add(R.id.nav_host_fragment_activity_main, fragment)
                     //?.addToBackStack(null)
                     ?.commit()
+                Log.d("MY", "goto: ${fragment})")
                 true
             } else {
                 false

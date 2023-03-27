@@ -10,7 +10,12 @@
         android:id="@+id/creation_fragment"
         android:name="com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment"
         android:label="fragment_creation_task"
-        tools:layout="@layout/fragment_creation_task" />
+        tools:layout="@layout/fragment_creation_task" >
+
+        <action
+            android:id="@+id/action_creation_fragment_to_tasks_fragment"
+            app:destination="@id/tasks_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/tasks_fragment"
         android:name="com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment"

@@ -16,6 +16,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
+import com.github.linkav20.streaky.ui.main.MainFragment
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
@@ -31,6 +32,13 @@ class AppActivity : AppCompatActivity() {
         //fullscreen()
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
         //binding.animationView.visibility = View.VISIBLE
+    }
+
+    public fun gotoMainFragment() {
+        //binding.authFragmentContainerView.visibility = View.GONE
+        //binding.mainFragmentContainerView.visibility = View.VISIBLE
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_activity_main, MainFragment()).commit()
     }
 
     override fun onStart() {
@@ -61,25 +69,25 @@ class AppActivity : AppCompatActivity() {
     }
 
     private fun setMainNavigation() {
-       /* val myNavHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val inflater = myNavHostFragment.navController.navInflater
-        val graph = inflater.inflate(R.navigation.main_nav_graph)
-        myNavHostFragment.navController.graph = graph
-        binding.navHostFragment.visibility = View.VISIBLE
-        binding.animationView.visibility = View.GONE*/
+        /* val myNavHostFragment =
+             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+         val inflater = myNavHostFragment.navController.navInflater
+         val graph = inflater.inflate(R.navigation.main_nav_graph)
+         myNavHostFragment.navController.graph = graph
+         binding.navHostFragment.visibility = View.VISIBLE
+         binding.animationView.visibility = View.GONE*/
     }
 
     private fun getUserData() {
-       /* val login = preferences.getString(USER_PREFERENCES_LOGIN, null)
-        val password = preferences.getString(USER_PREFERENCES_PASSWORD, null)
+        /* val login = preferences.getString(USER_PREFERENCES_LOGIN, null)
+         val password = preferences.getString(USER_PREFERENCES_PASSWORD, null)
 
-        if (login != null && password != null) {
-            // backend query
-            setMainNavigation()
-        } else {
-            setAuthNavigation()
-        }*/
+         if (login != null && password != null) {
+             // backend query
+             setMainNavigation()
+         } else {
+             setAuthNavigation()
+         }*/
     }
 }
 
