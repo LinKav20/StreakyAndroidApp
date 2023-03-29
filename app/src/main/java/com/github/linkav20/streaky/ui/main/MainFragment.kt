@@ -1,10 +1,6 @@
 package com.github.linkav20.streaky.ui.main
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,21 +9,12 @@ import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentMainBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
-import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment
 import com.github.linkav20.streaky.ui.userprofile.UserProfileFragment
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainFragment : BaseFragment() {
-
-    val preferences: SharedPreferences? by lazy {
-        activity?.getSharedPreferences(
-            USER_PREFERENCES,
-            Context.MODE_PRIVATE
-        )
-    }
 
     private lateinit var binding: FragmentMainBinding
 

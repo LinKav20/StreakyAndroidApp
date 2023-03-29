@@ -32,7 +32,7 @@ class AppActivity : AppCompatActivity() {
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
         showSplashScreen()
         lifecycleScope.launch {
-            delay(3000)
+            delay(1000)
             setMainScreen()
         }
     }

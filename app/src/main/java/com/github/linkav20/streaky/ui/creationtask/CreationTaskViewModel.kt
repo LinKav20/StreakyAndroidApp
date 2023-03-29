@@ -13,7 +13,7 @@ class CreationTaskViewModel @Inject constructor(
 
     public fun getDaysListAbb(resources: Resources) = listOf(
         RepeatingDayModel(false, resources.getString(R.string.monday_abb)),
-        RepeatingDayModel(true, resources.getString(R.string.tuesday_abb)),
+        RepeatingDayModel(false, resources.getString(R.string.tuesday_abb)),
         RepeatingDayModel(false, resources.getString(R.string.wednesday_abb)),
         RepeatingDayModel(false, resources.getString(R.string.thursday_abb)),
         RepeatingDayModel(false, resources.getString(R.string.friday_abb)),
