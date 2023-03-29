@@ -1,22 +1,21 @@
 package com.github.linkav20.streaky.ui.creationtask
 
-import android.graphics.Outline
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewOutlineProvider
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.databinding.FragmentChangePasswordBinding
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
-import eightbitlab.com.blurview.RenderScriptBlur
+
 
 class CreationTaskFragment : BaseFragment() {
+
+    private val component by lazy { CreationTaskComponent.create() }
+
+    private val viewModel by viewModels<CreationTaskViewModel> { component.viewModelFactory() }
 
     private lateinit var binding: FragmentCreationTaskBinding
 
@@ -36,7 +35,7 @@ class CreationTaskFragment : BaseFragment() {
         if (act != null) {
             val adapter = RepeatDayAdapter(binding, act.applicationContext, act.window)
             binding.repeatDayRecyclerview.adapter = adapter
-            adapter.submitList(getDaysListAbb())
+            adapter.submitList(viewModel.getDaysListAbb(resources))
             BlurEffectInCreationFragment(
                 binding.punishmentBlurview,
                 binding,
@@ -48,14 +47,4 @@ class CreationTaskFragment : BaseFragment() {
             parentFragmentManager.popBackStack()
         }
     }
-
-    private fun getDaysListAbb() = listOf(
-        RepeatingDayModel(false, resources.getString(R.string.monday_abb)),
-        RepeatingDayModel(true, resources.getString(R.string.tuesday_abb)),
-        RepeatingDayModel(false, resources.getString(R.string.wednesday_abb)),
-        RepeatingDayModel(false, resources.getString(R.string.thursday_abb)),
-        RepeatingDayModel(false, resources.getString(R.string.friday_abb)),
-        RepeatingDayModel(false, resources.getString(R.string.saturday_abb)),
-        RepeatingDayModel(false, resources.getString(R.string.sunday_abb))
-    )
 }
