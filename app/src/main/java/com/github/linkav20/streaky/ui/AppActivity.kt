@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
 import com.github.linkav20.streaky.ui.main.MainFragment
+import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
@@ -32,13 +33,13 @@ class AppActivity : AppCompatActivity() {
         //fullscreen()
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
         //binding.animationView.visibility = View.VISIBLE
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, MainAuthFragment())
+            .commit()
     }
 
     public fun gotoMainFragment() {
-        //binding.authFragmentContainerView.visibility = View.GONE
-        //binding.mainFragmentContainerView.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
-            .replace(R.id.auth_navigation, MainFragment()).commit()
+           .add(R.id.fragment_container, MainFragment()).commit()
     }
 
     override fun onStart() {

@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentMainAuthBinding
+import com.github.linkav20.streaky.ui.base.BaseFragment
 
-class MainAuthFragment : Fragment(R.layout.fragment_main_auth) {
+class MainAuthFragment : BaseFragment() {
     private lateinit var binding: FragmentMainAuthBinding
 
     override fun onCreateView(
@@ -18,9 +19,5 @@ class MainAuthFragment : Fragment(R.layout.fragment_main_auth) {
     ): View? {
         binding = FragmentMainAuthBinding.inflate(layoutInflater, container, false)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 }

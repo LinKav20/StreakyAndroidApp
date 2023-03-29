@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.databinding.FragmentResetPasswordBinding
+import com.github.linkav20.streaky.ui.base.BaseFragment
 
-class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
+class ResetPasswordFragment : BaseFragment() {
 
     private lateinit var binding: FragmentResetPasswordBinding
 

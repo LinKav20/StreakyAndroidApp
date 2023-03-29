@@ -2,6 +2,7 @@ package com.github.linkav20.streaky.ui.login
 
 import android.content.Context
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,12 @@ import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentLoginBinding
 import com.github.linkav20.streaky.ui.AppActivity
+import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.utils.SharedPreferences
 import com.google.android.material.snackbar.Snackbar
 import javax.inject.Inject
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : BaseFragment() {
 
     private val component by lazy { LoginComponent.create() }
 

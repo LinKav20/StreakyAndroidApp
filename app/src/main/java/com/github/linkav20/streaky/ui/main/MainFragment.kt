@@ -2,6 +2,7 @@ package com.github.linkav20.streaky.ui.main
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,16 +11,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentMainBinding
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
+import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
+import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment
 import com.github.linkav20.streaky.ui.userprofile.UserProfileFragment
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainFragment : Fragment(R.layout.fragment_tasks_list) {
+class MainFragment : BaseFragment() {
 
     val preferences: SharedPreferences? by lazy {
         activity?.getSharedPreferences(
@@ -46,31 +47,39 @@ class MainFragment : Fragment(R.layout.fragment_tasks_list) {
 
     private fun setupBottomNavigationBar() {
         val navigation: BottomNavigationView = binding.navView
-        navigation.selectedItemId = R.id.menu_tasks
+        setStartFragment(navigation)
 
         navigation.setOnItemSelectedListener { item ->
-            var fragment: Fragment? = null
-
-            when (item.itemId) {
-                R.id.menu_profile -> fragment = UserProfileFragment()
-                R.id.menu_create -> fragment = CreationTaskFragment()
-                R.id.menu_friends -> fragment = MyFriendTasksListFragment()
-                R.id.menu_tasks -> fragment = MyTasksListFragment()
-            }
+            val fragment: Fragment? = getFragmentByItemId(item.itemId)
 
             if (fragment != null) {
-
-                //if (fragment is CreationTaskFragment) navigation.visibility = View.GONE
-
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.add(R.id.main_layout, fragment)
-                    //?.addToBackStack(null)
-                    ?.commit()
-                Log.d("MY", "goto: ${fragment})")
+                move(fragment)
                 true
             } else {
                 false
             }
         }
+    }
+
+    private fun move(fragment: Fragment) {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.main_fragment_container, fragment)
+            //?.addToBackStack(null)
+            ?.commit()
+    }
+
+    private fun getFragmentByItemId(id: Int) = when (id) {
+        R.id.menu_profile -> UserProfileFragment()
+        R.id.menu_create -> CreationTaskFragment()
+        R.id.menu_friends -> MyFriendTasksListFragment()
+        R.id.menu_tasks -> MyTasksListFragment()
+        else -> null
+    }
+
+    private fun setStartFragment(navigation: BottomNavigationView) {
+        navigation.selectedItemId = R.id.menu_tasks
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.add(R.id.main_fragment_container, MyTasksListFragment())
+            ?.commit()
     }
 }

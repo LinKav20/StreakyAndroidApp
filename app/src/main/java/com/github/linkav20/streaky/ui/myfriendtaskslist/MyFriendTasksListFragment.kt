@@ -9,8 +9,9 @@ import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentFriendsTasksListBinding
 import com.github.linkav20.streaky.databinding.FragmentLoginBinding
 import com.github.linkav20.streaky.databinding.FragmentTasksListBinding
+import com.github.linkav20.streaky.ui.base.BaseFragment
 
-class MyFriendTasksListFragment : Fragment(R.layout.fragment_tasks_list) {
+class MyFriendTasksListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentFriendsTasksListBinding
 

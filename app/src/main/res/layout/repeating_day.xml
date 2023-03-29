@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <eightbitlab.com.blurview.BlurView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/monday_blurview"
-    style="@style/blueViewRepeatTime">
+    android:id="@+id/day_blurview"
+    style="@style/blurViewBase"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/monday_button"
+        android:id="@+id/day_button"
         style="@style/buttonRepeatTime"
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/button_repeat_size"
+        android:layout_height="@dimen/button_repeat_size"
 
         android:text="@string/monday_abb" />
 </eightbitlab.com.blurview.BlurView>

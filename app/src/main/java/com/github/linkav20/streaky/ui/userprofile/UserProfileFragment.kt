@@ -1,6 +1,7 @@
 package com.github.linkav20.streaky.ui.userprofile
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import androidx.fragment.app.Fragment
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentSignupBinding
 import com.github.linkav20.streaky.databinding.FragmentUserProfileBinding
+import com.github.linkav20.streaky.ui.base.BaseFragment
 
-class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
+class UserProfileFragment : BaseFragment() {
 
     private lateinit var binding: FragmentUserProfileBinding
 

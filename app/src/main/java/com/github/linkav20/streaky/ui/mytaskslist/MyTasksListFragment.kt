@@ -1,6 +1,7 @@
 package com.github.linkav20.streaky.ui.mytaskslist
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import androidx.fragment.app.Fragment
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentLoginBinding
 import com.github.linkav20.streaky.databinding.FragmentTasksListBinding
+import com.github.linkav20.streaky.ui.base.BaseFragment
 
-class MyTasksListFragment : Fragment(R.layout.fragment_tasks_list) {
+class MyTasksListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentTasksListBinding
 
