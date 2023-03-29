@@ -1,35 +1,66 @@
-package com.github.linkav20.streaky.ui
+package com.github.linkav20.streaky.ui.appactivity
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
 import com.github.linkav20.streaky.ui.main.MainFragment
 import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
+import com.github.linkav20.streaky.ui.splashscreen.SplashScreenFragment
+import com.github.linkav20.streaky.utils.SharedPreferences
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class AppActivity : AppCompatActivity() {
+
+    private val component by lazy { AppActivityComponent.create() }
+
+    private val viewModel by viewModels<AppActivityViewModel> { component.viewModelFactory() }
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, MainAuthFragment())
-            .commit()
+        showSplashScreen()
+        lifecycleScope.launch {
+            delay(3000)
+            setMainScreen()
+        }
     }
 
-    public fun gotoMainFragment() {
+    fun gotoMainFragment() {
         supportFragmentManager.beginTransaction()
-           .replace(R.id.fragment_container, MainFragment()).commit()
+            .replace(R.id.fragment_container, MainFragment()).commit()
+    }
+
+    private fun showSplashScreen(){
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, SplashScreenFragment()).commit()
+    }
+
+    private suspend fun setMainScreen() {
+        if (viewModel.isAuth()) gotoMainFragment()
+        else gotoAuthFragment()
+    }
+
+    private fun gotoAuthFragment() {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, MainAuthFragment())
+            .commit()
     }
 
     override fun onStart() {
         super.onStart()
 
-        /*val editor = preferences.edit()
+        /*val editor = getSharedPreferences(SharedPreferences.USER_PREFERENCES, Context.MODE_PRIVATE).edit()
         editor.putString(USER_PREFERENCES_LOGIN, null)
         editor.putString(USER_PREFERENCES_PASSWORD, null)
         editor.apply()*/

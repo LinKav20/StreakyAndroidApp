@@ -4,22 +4,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AppActivity">
-
-    <!--<com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-
-        app:lottie_rawRes="@raw/loading"/>-->
+    tools:context=".ui.appactivity.AppActivity">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"

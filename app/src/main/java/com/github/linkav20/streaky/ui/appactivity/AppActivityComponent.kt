@@ -1,4 +1,4 @@
-package com.github.linkav20.streaky.ui.login
+package com.github.linkav20.streaky.ui.appactivity
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -13,9 +13,9 @@ import dagger.Component
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-@Component(modules = [LoginModule::class])
+@Component(modules = [AppActivityModule::class])
 @ScreenScope
-interface LoginComponent {
+interface AppActivityComponent {
     fun viewModelFactory(): ViewModelFactory
 
     @Component.Builder
@@ -26,22 +26,22 @@ interface LoginComponent {
         @BindsInstance
         fun appContext(context: Context): Builder
 
-        fun build(): LoginComponent
+        fun build(): AppActivityComponent
     }
 
     companion object {
         fun create() = with(DI.appComponent) {
-            DaggerLoginComponent.builder().appContext(DI.appComponent.appContext())
+            DaggerAppActivityComponent.builder().appContext(DI.appComponent.appContext())
                 .api(DI.networkComponent.api()).build()
         }
     }
 }
 
 @Module
-abstract class LoginModule {
+abstract class AppActivityModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(LoginViewModel::class)
-    abstract fun loginViewModel(viewModel: LoginViewModel): ViewModel
+    @ViewModelKey(AppActivityViewModel::class)
+    abstract fun loginViewModel(viewModel: AppActivityViewModel): ViewModel
 }

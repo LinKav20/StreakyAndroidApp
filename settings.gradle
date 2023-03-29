@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Streaky"
 include ':app'
+include ':network'
