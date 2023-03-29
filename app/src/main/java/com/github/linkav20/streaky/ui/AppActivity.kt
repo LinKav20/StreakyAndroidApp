@@ -23,7 +23,7 @@ class AppActivity : AppCompatActivity() {
 
     public fun gotoMainFragment() {
         supportFragmentManager.beginTransaction()
-           .add(R.id.fragment_container, MainFragment()).commit()
+           .replace(R.id.fragment_container, MainFragment()).commit()
     }
 
     override fun onStart() {

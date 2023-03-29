@@ -1,11 +1,15 @@
 package com.github.linkav20.streaky.ui.creationtask
 
+import android.content.Context
 import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
+import javax.inject.Inject
 
-class CreationTaskViewModel : ViewModel() {
+class CreationTaskViewModel @Inject constructor(
+    private val context: Context
+) : ViewModel() {
 
     public fun getDaysListAbb(resources: Resources) = listOf(
         RepeatingDayModel(false, resources.getString(R.string.monday_abb)),

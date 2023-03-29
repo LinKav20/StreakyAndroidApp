@@ -29,7 +29,7 @@ interface  CreationTaskComponent {
 
     companion object {
         fun create() = with(DI.appComponent) {
-            DaggerLoginComponent.builder().appContext(DI.appComponent.appContext()).build()
+            DaggerCreationTaskComponent.builder().appContext(DI.appComponent.appContext()).build()
         }
     }
 }
