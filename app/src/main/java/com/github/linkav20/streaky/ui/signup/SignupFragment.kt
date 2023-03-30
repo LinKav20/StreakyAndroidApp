@@ -35,13 +35,13 @@ class SignupFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.signUpButton.setOnClickListener {
-            lifecycleScope.launch { onLoginButtonClicked() }
+            lifecycleScope.launch { onSignupButtonClicked() }
         }
 
         setDirections()
     }
 
-    private suspend fun onLoginButtonClicked() {
+    private suspend fun onSignupButtonClicked() {
         val login = binding.loginEdittext.text.toString()
         val email = binding.emailEdittext.text.toString()
         val password = binding.passwordEdittext.text.toString()
