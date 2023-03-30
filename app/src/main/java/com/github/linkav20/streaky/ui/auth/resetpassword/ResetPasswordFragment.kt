@@ -46,7 +46,10 @@ class ResetPasswordFragment : BaseFragment() {
         if (viewModel.checkEmail(email))
             gotoChangePassword()
         else {
-            tmpSnackbar()
+            viewModel.snackBar(
+                binding.root,
+                resources.getString(R.string.failed_try_again)
+            )
         }
     }
 
@@ -54,16 +57,5 @@ class ResetPasswordFragment : BaseFragment() {
         binding.resetPasswordButton.setOnClickListener {
             findNavController().navigate(R.id.action_resetPasswordFragment_to_changePasswordFragment)
         }
-    }
-
-    private fun tmpSnackbar() {
-        val snackbar: Snackbar = Snackbar.make(
-            binding.root,
-            resources.getString(R.string.failed_try_again),
-            Snackbar.LENGTH_SHORT
-        )
-        val snackBarView = snackbar.view
-        snackBarView.translationY = viewModel.convertDpToPixel(50f)
-        snackbar.show()
     }
 }

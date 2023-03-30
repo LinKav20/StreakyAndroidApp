@@ -52,7 +52,10 @@ class LoginFragment : BaseFragment() {
             gotoMain()
         else {
             clearFields()
-            tmpSnackbar()
+            viewModel.snackBar(
+                binding.root,
+                resources.getString(R.string.failed_try_again)
+            )
         }
     }
 
@@ -82,14 +85,4 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-    private fun tmpSnackbar() {
-        val snackbar: Snackbar = Snackbar.make(
-            binding.root,
-            resources.getString(R.string.failed_try_again),
-            Snackbar.LENGTH_SHORT
-        )
-        val snackBarView = snackbar.view
-        snackBarView.translationY = viewModel.convertDpToPixel(50f)
-        snackbar.show()
-    }
 }

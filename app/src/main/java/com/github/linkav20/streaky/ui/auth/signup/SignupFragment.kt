@@ -1,6 +1,7 @@
 package com.github.linkav20.streaky.ui.auth.signup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,6 +50,8 @@ class SignupFragment : BaseFragment() {
         val password = binding.passwordEdittext.text.toString()
         val repeatedPassword = binding.repeatPasswordEdittext.text.toString()
 
+        Log.d("AUTH", "$login $email $password")
+
         if (viewModel.signup(
                 login = login,
                 email = email,
@@ -58,7 +61,10 @@ class SignupFragment : BaseFragment() {
         )
             gotoLogin()
         else {
-            tmpSnackbar()
+            viewModel.snackBar(
+                binding.root,
+                resources.getString(R.string.failed_try_again)
+            )
         }
     }
 
@@ -70,16 +76,5 @@ class SignupFragment : BaseFragment() {
         binding.loginButton.setOnClickListener {
             findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
-    }
-
-    private fun tmpSnackbar() {
-        val snackbar: Snackbar = Snackbar.make(
-            binding.root,
-            resources.getString(R.string.failed_try_again),
-            Snackbar.LENGTH_SHORT
-        )
-        val snackBarView = snackbar.view
-        snackBarView.translationY = viewModel.convertDpToPixel(50f)
-        snackbar.show()
     }
 }
