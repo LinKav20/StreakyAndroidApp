@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
@@ -45,6 +46,10 @@ class CreationTaskFragment : BaseFragment() {
         } else {
             // toast ex
             parentFragmentManager.popBackStack()
+        }
+
+        binding.createButton.setOnClickListener {
+            findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
         }
     }
 }

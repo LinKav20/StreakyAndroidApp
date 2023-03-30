@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/tasks_fragment">
+    app:startDestination="@id/mainFragment">
 
 
     <fragment
@@ -11,24 +11,10 @@
         android:name="com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment"
         android:label="fragment_creation_task"
         tools:layout="@layout/fragment_creation_task" >
-
         <action
-            android:id="@+id/action_creation_fragment_to_tasks_fragment"
-            app:destination="@id/tasks_fragment" />
+            android:id="@+id/action_creation_fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/tasks_fragment"
-        android:name="com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment"
-        android:label="MyTasksListFragment" />
-    <fragment
-        android:id="@+id/profile_fragment"
-        android:name="com.github.linkav20.streaky.ui.userprofile.UserProfileFragment"
-        android:label="UserProfileFragment" />
-    <fragment
-        android:id="@+id/friends_fragement"
-        android:name="com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment"
-        android:label="fragment_friends_tasks_list"
-        tools:layout="@layout/fragment_friends_tasks_list" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.github.linkav20.streaky.ui.main.MainFragment"
@@ -36,14 +22,5 @@
         <action
             android:id="@+id/action_mainFragment_to_creation_fragment"
             app:destination="@id/creation_fragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_profile_fragment"
-            app:destination="@id/profile_fragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_tasks_fragment"
-            app:destination="@id/tasks_fragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_friends_fragement"
-            app:destination="@id/friends_fragement" />
     </fragment>
 </navigation>

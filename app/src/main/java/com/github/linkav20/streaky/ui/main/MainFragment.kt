@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.databinding.FragmentMainBinding
+import com.github.linkav20.streaky.databinding.FragmentMainBottonNavBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
@@ -16,14 +17,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentMainBottonNavBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+        binding = FragmentMainBottonNavBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -49,10 +50,14 @@ class MainFragment : BaseFragment() {
     }
 
     private fun move(fragment: Fragment) {
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.main_fragment_container, fragment)
-            //?.addToBackStack(null)
-            ?.commit()
+        if (fragment is CreationTaskFragment) {
+            findNavController().navigate(R.id.action_mainFragment_to_creation_fragment)
+        } else {
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.main_fragment_container, fragment)
+                //?.addToBackStack(null)
+                ?.commit()
+        }
     }
 
     private fun getFragmentByItemId(id: Int) = when (id) {

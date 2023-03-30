@@ -1,20 +1,22 @@
 package com.github.linkav20.streaky.ui.appactivity
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
 import com.github.linkav20.streaky.ui.main.MainFragment
 import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
+import com.github.linkav20.streaky.ui.mainnavcontroller.MainNavControllerFragment
 import com.github.linkav20.streaky.ui.splashscreen.SplashScreenFragment
-import com.github.linkav20.streaky.utils.SharedPreferences
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,6 +31,7 @@ class AppActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        fullscreen()
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
         showSplashScreen()
         lifecycleScope.launch {
@@ -39,10 +42,10 @@ class AppActivity : AppCompatActivity() {
 
     fun gotoMainFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, MainFragment()).commit()
+            .replace(R.id.fragment_container, MainNavControllerFragment()).commit()
     }
 
-    private fun showSplashScreen(){
+    private fun showSplashScreen() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container, SplashScreenFragment()).commit()
     }
@@ -53,7 +56,8 @@ class AppActivity : AppCompatActivity() {
     }
 
     private fun gotoAuthFragment() {
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, MainAuthFragment())
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, MainAuthFragment())
             .commit()
     }
 
@@ -67,11 +71,23 @@ class AppActivity : AppCompatActivity() {
     }
 
     private fun fullscreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
         window.statusBarColor = Color.TRANSPARENT
+    }
+
+    private fun hideSystemUIShowBySwipe(){
+        val windowInsetsController =
+            WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        window.decorView.setOnApplyWindowInsetsListener { view, windowInsets ->
+            windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+            view.onApplyWindowInsets(windowInsets)
+        }
     }
 
     private fun setAuthNavigation() {
@@ -104,5 +120,17 @@ class AppActivity : AppCompatActivity() {
          } else {
              setAuthNavigation()
          }*/
+    }
+
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(
+            window,
+            window.decorView.findViewById(android.R.id.content)
+        ).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
     }
 }
