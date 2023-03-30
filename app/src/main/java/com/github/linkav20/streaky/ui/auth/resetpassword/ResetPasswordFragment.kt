@@ -1,27 +1,25 @@
-package com.github.linkav20.streaky.ui.resetpassword
+package com.github.linkav20.streaky.ui.auth.resetpassword
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.databinding.FragmentResetPasswordBinding
+import com.github.linkav20.streaky.ui.auth.AuthComponent
+import com.github.linkav20.streaky.ui.auth.AuthViewModel
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.github.linkav20.streaky.ui.signup.SignupComponent
-import com.github.linkav20.streaky.ui.signup.SignupViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class ResetPasswordFragment : BaseFragment() {
 
-    private val component by lazy { ResetPasswordComponent.create() }
+    private val component by lazy { AuthComponent.create() }
 
-    private val viewModel by viewModels<ResetPasswordViewModel> { component.viewModelFactory() }
+    private val viewModel by viewModels<AuthViewModel> { component.viewModelFactory() }
 
     private lateinit var binding: FragmentResetPasswordBinding
 

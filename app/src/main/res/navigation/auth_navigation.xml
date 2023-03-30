@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.github.linkav20.streaky.ui.login.LoginFragment"
+        android:name="com.github.linkav20.streaky.ui.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
-        android:name="com.github.linkav20.streaky.ui.signup.SignupFragment"
+        android:name="com.github.linkav20.streaky.ui.auth.signup.SignupFragment"
         android:label="SignupFragment" >
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
-        android:name="com.github.linkav20.streaky.ui.resetpassword.ResetPasswordFragment"
+        android:name="com.github.linkav20.streaky.ui.auth.resetpassword.ResetPasswordFragment"
         android:label="fragment_reset_password"
         tools:layout="@layout/fragment_reset_password" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.github.linkav20.streaky.ui.changepassword.ChangePasswordFragment"
+        android:name="com.github.linkav20.streaky.ui.auth.changepassword.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
 </navigation>

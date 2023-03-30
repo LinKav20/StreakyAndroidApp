@@ -1,13 +1,10 @@
-package com.github.linkav20.streaky.ui.changepassword
+package com.github.linkav20.streaky.ui.auth.changepassword
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentChangePasswordBinding
-import com.github.linkav20.streaky.databinding.FragmentLoginBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 
 class ChangePasswordFragment : BaseFragment() {

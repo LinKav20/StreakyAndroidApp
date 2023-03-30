@@ -1,4 +1,4 @@
-package com.github.linkav20.streaky.ui.resetpassword
+package com.github.linkav20.streaky.ui.auth
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -13,9 +13,10 @@ import dagger.Component
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-@Component(modules = [ResetPasswordModule::class])
+
+@Component(modules = [AuthModule::class])
 @ScreenScope
-interface ResetPasswordComponent {
+interface AuthComponent {
     fun viewModelFactory(): ViewModelFactory
 
     @Component.Builder
@@ -26,22 +27,22 @@ interface ResetPasswordComponent {
         @BindsInstance
         fun appContext(context: Context): Builder
 
-        fun build(): ResetPasswordComponent
+        fun build(): AuthComponent
     }
 
     companion object {
         fun create() = with(DI.appComponent) {
-            DaggerResetPasswordComponent.builder().appContext(DI.appComponent.appContext())
+            DaggerAuthComponent.builder().appContext(DI.appComponent.appContext())
                 .api(DI.networkComponent.api()).build()
         }
     }
 }
 
 @Module
-abstract class ResetPasswordModule {
+abstract class AuthModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(ResetPasswordViewModel::class)
-    abstract fun resetPasswordViewModel(viewModel: ResetPasswordViewModel):ViewModel
+    @ViewModelKey(AuthViewModel::class)
+    abstract fun signupViewModel(viewModel: AuthViewModel): ViewModel
 }

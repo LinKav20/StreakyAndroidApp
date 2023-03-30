@@ -1,4 +1,4 @@
-package com.github.linkav20.streaky.ui.login
+package com.github.linkav20.streaky.ui.auth.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentLoginBinding
 import com.github.linkav20.streaky.ui.appactivity.AppActivity
+import com.github.linkav20.streaky.ui.auth.AuthComponent
+import com.github.linkav20.streaky.ui.auth.AuthViewModel
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -17,9 +19,9 @@ import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment() {
 
-    private val component by lazy { LoginComponent.create() }
+    private val component by lazy { AuthComponent.create() }
 
-    private val viewModel by viewModels<LoginViewModel> { component.viewModelFactory() }
+    private val viewModel by viewModels<AuthViewModel> { component.viewModelFactory() }
 
     private lateinit var binding: FragmentLoginBinding
 
