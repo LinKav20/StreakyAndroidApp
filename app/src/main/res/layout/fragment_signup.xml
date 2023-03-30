@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,6 @@
     android:background="@drawable/bg_lavender_to_orange"
     android:orientation="vertical"
     tools:context="ui.signup.SignupFragment">
-
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/main_layout"
@@ -124,4 +123,4 @@
             android:background="@drawable/sign_up_button" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

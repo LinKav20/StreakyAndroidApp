@@ -5,4 +5,6 @@ interface Api {
     suspend fun isExist(login: String, password: String): Boolean
 
     suspend fun getUserToken(login: String, password: String): String
+
+    suspend fun signUp(login: String, email: String, password: String): Boolean
 }

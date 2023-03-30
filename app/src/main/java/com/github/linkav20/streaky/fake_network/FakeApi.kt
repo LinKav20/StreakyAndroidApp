@@ -10,4 +10,8 @@ object FakeApi : Api {
     override suspend fun getUserToken(login: String, password: String): String {
         TODO("Not yet implemented")
     }
+
+    override suspend fun signUp(login: String, email: String, password: String): Boolean =
+        login != "admin"
+
 }

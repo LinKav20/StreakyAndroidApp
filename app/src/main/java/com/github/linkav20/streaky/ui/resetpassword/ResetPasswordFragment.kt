@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.databinding.FragmentResetPasswordBinding
@@ -25,5 +26,12 @@ class ResetPasswordFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setDirections()
+    }
+
+    private fun setDirections() {
+        binding.resetPasswordButton.setOnClickListener {
+            findNavController().navigate(R.id.action_resetPasswordFragment_to_changePasswordFragment)
+        }
     }
 }
