@@ -1,8 +1,8 @@
 package com.github.linkav20.streaky.ui.appactivity
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.activity.viewModels
@@ -13,10 +13,12 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.*
-import com.github.linkav20.streaky.ui.main.MainFragment
 import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
 import com.github.linkav20.streaky.ui.mainnavcontroller.MainNavControllerFragment
 import com.github.linkav20.streaky.ui.splashscreen.SplashScreenFragment
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
+import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -64,10 +66,10 @@ class AppActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        /*val editor = getSharedPreferences(SharedPreferences.USER_PREFERENCES, Context.MODE_PRIVATE).edit()
+        val editor = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).edit()
         editor.putString(USER_PREFERENCES_LOGIN, null)
         editor.putString(USER_PREFERENCES_PASSWORD, null)
-        editor.apply()*/
+        editor.apply()
     }
 
     private fun fullscreen() {

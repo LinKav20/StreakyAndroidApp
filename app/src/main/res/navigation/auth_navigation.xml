@@ -16,20 +16,14 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_main_navigation"
-            app:destination="@id/main_navigation" />
-        <action
-            android:id="@+id/action_loginFragment_to_mainFragment2"
-            app:destination="@id/mainFragment2" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.github.linkav20.streaky.ui.signup.SignupFragment"
         android:label="SignupFragment" >
         <action
-            android:id="@+id/action_signupFragment_to_resetPasswordFragment"
-            app:destination="@id/resetPasswordFragment" />
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
@@ -45,13 +39,4 @@
         android:name="com.github.linkav20.streaky.ui.changepassword.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
-
-    <include
-        android:id="@+id/main_navigation"
-        app:graph="@navigation/main_navigation"/>
-    <fragment
-        android:id="@+id/mainFragment2"
-        android:name="com.github.linkav20.streaky.ui.main.MainFragment"
-        android:label="MainFragment" />
-
 </navigation>

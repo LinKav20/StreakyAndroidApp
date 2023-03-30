@@ -55,4 +55,8 @@
     // Tasks List
     <string name="title_my_list">Today</string>
 
+    // Errors texts
+    <string name="error_cant_save_user_info">Cannot save user info</string>
+    <string name="failed_try_again">Failed! Please, try again</string>
+
 </resources>

@@ -31,7 +31,7 @@ class AppActivityViewModel @Inject constructor(
     private suspend fun auth(login: String, password: String): Boolean =
         viewModelScope.async(Dispatchers.IO) {
             //api.isAuth(login, password)
-            FakeApi.isAuth(login, password)
+            FakeApi.isExist(login, password)
         }.await()
 
     private suspend fun getPreferences() = viewModelScope.async(Dispatchers.IO) {
