@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.databinding.FragmentMainBottonNavBinding
+import com.github.linkav20.streaky.databinding.FragmentMainBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
@@ -17,14 +17,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentMainBottonNavBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMainBottonNavBinding.inflate(layoutInflater, container, false)
+        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

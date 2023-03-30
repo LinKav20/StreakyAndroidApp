@@ -9,7 +9,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.databinding.FragmentMainBottonNavBinding
 import com.github.linkav20.streaky.databinding.FragmentMainNavControllerBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 
