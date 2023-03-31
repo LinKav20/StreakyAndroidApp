@@ -2,6 +2,7 @@ package com.github.linkav20.streaky.ui.creationtask
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.DI
 import com.github.linkav20.streaky.di.ScreenScope
 import com.github.linkav20.streaky.di.ViewModelFactory
@@ -19,6 +20,8 @@ interface  CreationTaskComponent {
 
     @Component.Builder
     interface Builder {
+        @BindsInstance
+        fun api(api: Api): Builder
 
         @BindsInstance
         fun appContext(context: Context): Builder
@@ -28,7 +31,8 @@ interface  CreationTaskComponent {
 
     companion object {
         fun create() = with(DI.appComponent) {
-            DaggerCreationTaskComponent.builder().appContext(DI.appComponent.appContext()).build()
+            DaggerCreationTaskComponent.builder().appContext(DI.appComponent.appContext())
+                .api(DI.networkComponent.api()).build()
         }
     }
 }

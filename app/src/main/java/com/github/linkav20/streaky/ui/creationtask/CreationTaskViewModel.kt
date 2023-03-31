@@ -3,22 +3,29 @@ package com.github.linkav20.streaky.ui.creationtask
 import android.content.Context
 import android.content.res.Resources
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.R
+import com.github.linkav20.streaky.data.Dates
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
+import com.github.linkav20.streaky.utils.Utils
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class CreationTaskViewModel @Inject constructor(
-    private val context: Context
+    private val context: Context,
+    private val api: Api
 ) : ViewModel() {
 
     private val _daysList = MutableLiveData<List<RepeatingDayModel>>()
     val daysList: LiveData<List<RepeatingDayModel>> = _daysList
 
     init {
-        _daysList.postValue(getDaysListAbb(context.resources))
+        initStateOfRepeatingDays()
     }
 
     fun updateDaysList(day: RepeatingDayModel) {
@@ -26,6 +33,10 @@ class CreationTaskViewModel @Inject constructor(
         val index = list.indexOfFirst { it.name == day.name }
         list[index] = day
         _daysList.postValue(list)
+    }
+
+    fun initStateOfRepeatingDays() {
+        _daysList.postValue(getDaysListAbb(context.resources))
     }
 
     private fun getDaysListAbb(resources: Resources) = listOf(
@@ -38,4 +49,14 @@ class CreationTaskViewModel @Inject constructor(
         RepeatingDayModel(false, resources.getString(R.string.sunday_abb))
     )
 
+    fun snackBar(view: View, text: String) {
+        Utils.showSnackBar(view, text, context.resources)
+    }
+
+    fun getCurrentTime() = Dates.getCurrentTime()
+
+    fun getDateAfterMonth() = Dates.getMonthAfterCurrentDate()
+
+    fun getLongDateFromValues(year: Int, month: Int, day: Int) =
+        Dates.getLongDateFromValues(year, month, day)
 }

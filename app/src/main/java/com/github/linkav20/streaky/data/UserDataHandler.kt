@@ -27,11 +27,11 @@ object UserDataHandler {
 
     private fun checkLoginField(value: String?) = checkIfNotEmpty(value)
 
-    private fun checkPasswordField(value: String?) = checkIfNotEmpty(value) && isPasswordValid(value!!)
+    fun checkPasswordField(value: String?) = checkIfNotEmpty(value) && isPasswordValid(value!!)
 
     fun checkEmailField(value: String?) = checkIfNotEmpty(value) && isEmailValid(value!!)
 
-    private fun checkIfNotEmpty(value: String?) =
+    fun checkIfNotEmpty(value: String?) =
         value != null && value.isNotEmpty()
 
     private fun isPasswordValid(value: String): Boolean {

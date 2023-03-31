@@ -77,6 +77,11 @@ class AuthViewModel @Inject constructor(
         return UserDataHandler.checkEmailField(email)
     }
 
+    fun checkPassword(password: String?, repeatedPassword: String?) =
+        UserDataHandler.checkPasswordField(password)
+                && UserDataHandler.checkIfNotEmpty(repeatedPassword)
+                && password == repeatedPassword
+
     fun snackBar(view: View, text: String) {
         Utils.showSnackBar(view, text, context.resources)
     }

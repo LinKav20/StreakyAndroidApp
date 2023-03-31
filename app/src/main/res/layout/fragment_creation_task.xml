@@ -176,6 +176,8 @@
 
                     android:text="@string/temp_time"
 
+                    android:visibility="gone"
+
                     app:layout_constraintBottom_toBottomOf="@+id/notify_switcher"
                     app:layout_constraintEnd_toStartOf="@+id/notify_switcher"
                     app:layout_constraintStart_toEndOf="@+id/notify_textview"
