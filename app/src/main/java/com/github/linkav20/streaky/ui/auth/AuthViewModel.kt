@@ -25,7 +25,7 @@ class AuthViewModel @Inject constructor(
     private val TAG = "AUTH"
 
     suspend fun login(login: String?, password: String?): Boolean {
-        if (!checkDataFromLoginForm(login, password)) return false
+        if (!UserDataHandler.checkDataFromLoginForm(login, password)) return false
 
         val isExist = viewModelScope.async(Dispatchers.IO) {
             //api.isExist(login!!, password!!)
@@ -53,7 +53,13 @@ class AuthViewModel @Inject constructor(
         password: String?,
         repeatedPassword: String?
     ): Boolean {
-        if (!checkDataSignUpFrom(login, email, password, repeatedPassword)) return false
+        if (!UserDataHandler.checkDataSignUpFrom(
+                login,
+                email,
+                password,
+                repeatedPassword
+            )
+        ) return false
 
         val isCreate = viewModelScope.async(Dispatchers.IO) {
             //api.signUp(login!!, password!!)
@@ -71,32 +77,9 @@ class AuthViewModel @Inject constructor(
         return UserDataHandler.checkEmailField(email)
     }
 
-    fun checkPassword(password: String?, repeatedPassword: String?) =
-        UserDataHandler.checkPasswordField(password)
-                && UserDataHandler.checkIfNotEmpty(repeatedPassword)
-                && password == repeatedPassword
-
-    private fun checkDataSignUpFrom(
-        login: String?,
-        email: String?,
-        password: String?,
-        repeatedPassword: String?
-    ): Boolean {
-        val isDataNotEmpty = UserDataHandler.checkLoginField(login)
-                && UserDataHandler.checkEmailField(email)
-                && checkPassword(password, repeatedPassword)
-
-        if (!isDataNotEmpty) return false
-
-        return password == repeatedPassword
-    }
-
     fun snackBar(view: View, text: String) {
         Utils.showSnackBar(view, text, context.resources)
     }
-
-    private fun checkDataFromLoginForm(login: String?, password: String?) =
-        UserDataHandler.checkLoginField(login) && UserDataHandler.checkIfNotEmpty(password)
 
     private suspend fun saveUserInfo(login: String, password: String) {
         val editor = getSharedPreferencesEditor() ?: throw Exception("Cannot save user info")
