@@ -66,10 +66,10 @@ class AppActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val editor = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).edit()
+        /*val editor = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).edit()
         editor.putString(USER_PREFERENCES_LOGIN, null)
         editor.putString(USER_PREFERENCES_PASSWORD, null)
-        editor.apply()
+        editor.apply()*/
     }
 
     private fun fullscreen() {

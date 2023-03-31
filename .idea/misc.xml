@@ -12,6 +12,7 @@
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/item_selector.xml" value="0.1245" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners.xml" value="0.124" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners_white.xml" value="0.139" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners_white_60.xml" value="0.134" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/separator.xml" value="0.1655" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/activity_tasks.xml" value="0.136" />
@@ -35,6 +36,7 @@
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/my_task_item.xml" value="0.6" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/notification_recycler.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/repeating_day.xml" value="0.4" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/repeating_day_chosen.xml" value="0.264" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/splash_screen.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1359375" />
       </map>

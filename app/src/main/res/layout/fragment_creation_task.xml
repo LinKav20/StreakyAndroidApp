@@ -85,6 +85,7 @@
                     android:lines="1"
 
                     android:maxLines="1"
+                    android:inputType="text"
                     android:paddingStart="@dimen/start_text_edittext"
 
                     app:layout_constraintEnd_toEndOf="parent"
@@ -275,6 +276,7 @@
                     android:hint="@string/observe_friend_hint"
                     android:lines="1"
 
+                    android:inputType="text"
                     android:maxLines="1"
                     android:paddingStart="@dimen/start_text_edittext"
 
@@ -318,6 +320,7 @@
                     android:hint="@string/observe_stranger_hint"
                     android:lines="1"
 
+                    android:inputType="text"
                     android:maxLines="1"
                     android:paddingStart="@dimen/start_text_edittext"
 

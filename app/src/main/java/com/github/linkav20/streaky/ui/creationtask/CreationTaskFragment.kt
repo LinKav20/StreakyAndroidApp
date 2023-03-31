@@ -10,15 +10,16 @@ import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
+import com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter.RepeatDayAdapter
 
 
-class CreationTaskFragment : BaseFragment() {
+class CreationTaskFragment : BaseFragment(), OnItemClickedListener  {
 
     private val component by lazy { CreationTaskComponent.create() }
 
     private val viewModel by viewModels<CreationTaskViewModel> { component.viewModelFactory() }
 
-    private lateinit var binding: FragmentCreationTaskBinding
+     lateinit var binding: FragmentCreationTaskBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,9 +35,11 @@ class CreationTaskFragment : BaseFragment() {
 
         val act = activity
         if (act != null) {
-            val adapter = RepeatDayAdapter(binding, act.applicationContext, act.window)
+            val adapter = RepeatDayAdapter(this, act.applicationContext, act.window)
             binding.repeatDayRecyclerview.adapter = adapter
-            adapter.submitList(viewModel.getDaysListAbb(resources))
+            viewModel.daysList.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
             BlurEffectInCreationFragment(
                 binding.punishmentBlurview,
                 binding,
@@ -51,5 +54,9 @@ class CreationTaskFragment : BaseFragment() {
         binding.createButton.setOnClickListener {
             findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
         }
+    }
+
+    override fun onItemClick(day: RepeatingDayModel) {
+        viewModel.updateDaysList(day)
     }
 }

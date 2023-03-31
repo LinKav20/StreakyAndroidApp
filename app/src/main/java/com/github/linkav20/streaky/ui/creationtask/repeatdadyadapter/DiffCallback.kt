@@ -1,4 +1,4 @@
-package com.github.linkav20.streaky.ui.creationtask
+package com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
