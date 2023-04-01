@@ -1,18 +1,30 @@
 package com.github.linkav20.streaky.ui.creationtask
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
+import com.github.linkav20.streaky.ui.creationtask.model.ImageType
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
 import com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter.RepeatDayAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 
 
@@ -39,13 +51,24 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
         setRepeatDayAdapter()
         setBlurEffect()
         setNotifyBlock()
-        binding.doUntilButton.text = viewModel.getDateAfterMonth()
-
-        binding.doUntilButton.setOnClickListener {
-            datePicker()
-        }
+        setDoUntilBlock()
+        setTitle()
+        setPunishment()
+        setFriendObserver()
+        setStrangerObserver()
 
         binding.createButton.setOnClickListener {
+            lifecycleScope.launch(Dispatchers.Main) {
+                val message = withContext(Dispatchers.IO) {
+                    viewModel.create()
+                }
+                viewModel.snackBar(binding.root, message)
+                // TODO
+                if (message == "ok") findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
+            }
+        }
+
+        binding.backArrowButton.setOnClickListener {
             findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
         }
     }
@@ -55,6 +78,28 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
             viewModel.updateDaysList(day)
         } else {
             viewModel.snackBar(binding.root, resources.getString(R.string.cannot_chose_repeat))
+        }
+    }
+
+    private fun setTitle() {
+        binding.titleEdittext.setText(viewModel.creationForm.value?.title ?: "")
+        binding.titleEdittext.doOnTextChanged { text, _, _, _ ->
+            viewModel.setTitleInCreationForm(text.toString())
+        }
+    }
+
+    private fun setPunishment() {
+        binding.punishmentEdittext.setText(viewModel.creationForm.value?.title ?: "")
+        binding.punishmentEdittext.doOnTextChanged { text, _, _, _ ->
+            viewModel.setPunishmentInCreationForm(text.toString())
+        }
+    }
+
+    private fun setDoUntilBlock() {
+        binding.doUntilButton.text = viewModel.getDeadlineAsString()
+
+        binding.doUntilButton.setOnClickListener {
+            datePicker()
         }
     }
 
@@ -75,11 +120,12 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
     private fun setChangeNotifySwitcherState() {
         with(binding) {
             notifySwitcher.setOnCheckedChangeListener { _, isChecked ->
+                viewModel.setNotifyInCreationForm(isChecked)
+
                 if (isChecked) {
-                    notifyButton.text = viewModel.getCurrentTime()
+                    notifyButton.text = viewModel.getTimeForNotifyField()
                     notifyButton.visibility = View.VISIBLE
                 } else {
-                    viewModel.initStateOfRepeatingDays()
                     notifyButton.visibility = View.GONE
                 }
             }
@@ -111,26 +157,34 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
     private fun setRepeatDayAdapter() {
         val act = activity
         if (act != null) {
-            val adapter = RepeatDayAdapter(this, act.applicationContext, act.window)
-            binding.repeatDayRecyclerview.adapter = adapter
-            viewModel.daysList.observe(viewLifecycleOwner) {
-                adapter.submitList(it)
-            }
+            initAdapter(act)
         } else {
             viewModel.snackBar(binding.root, resources.getString(R.string.activity_null))
             parentFragmentManager.popBackStack()
         }
     }
 
+    private fun initAdapter(activity: Activity) {
+        val adapter = RepeatDayAdapter(this, activity.applicationContext, activity.window)
+        binding.repeatDayRecyclerview.adapter = adapter
+        viewModel.creationForm.observe(viewLifecycleOwner) {
+            val list = if (it.isNotify) it.repeat else viewModel.getDaysListAbb()
+            adapter.submitList(list)
+        }
+    }
+
     private fun timeDatePicker() {
-        val c = Calendar.getInstance()
+        val c = viewModel.getCalendarByDate(viewModel.creationForm.value?.notifyTime)
         val hour = c.get(Calendar.HOUR_OF_DAY)
         val minute = c.get(Calendar.MINUTE)
 
         val timePickerDialog = context?.let { ctx ->
             TimePickerDialog(
                 ctx,
-                { _, hourOfDay, minute -> binding.notifyButton.text = "$hourOfDay:$minute" },
+                { _, hourOfDay, minute ->
+                    binding.notifyButton.text =
+                        viewModel.getTimeFromHourAndMinuteAsString(hourOfDay, minute)
+                },
                 hour,
                 minute,
                 true
@@ -141,7 +195,7 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
     }
 
     private fun datePicker() {
-        val c = Calendar.getInstance()
+        val c = viewModel.getCalendarByDate(viewModel.creationForm.value?.deadline)
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
@@ -161,14 +215,74 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
     }
 
     private fun choseDayInCalendar(yearD: Int, monthD: Int, dayD: Int) {
-        val newDate = viewModel.getLongDateFromValues(yearD, monthD, dayD)
-
-        if (newDate >= System.currentTimeMillis()) {
-            val day = String.format("%02d", dayD)
-            val month = String.format("%02d", monthD + 1)
-            binding.doUntilButton.text = "$day.$month.$yearD"
+        if (viewModel.isDateMoreThanNow(year = yearD, month = monthD, day = dayD)) {
+            binding.doUntilButton.text =
+                viewModel.getDateAsString(year = yearD, month = monthD, day = dayD)
         } else {
             viewModel.snackBar(binding.root, "Deadline cannot be earlier than now")
         }
+    }
+
+    private fun setFriendObserver() {
+        binding.friendObserverEdittext.doOnTextChanged { text, _, _, _ ->
+            lifecycleScope.launch(Dispatchers.Main) {
+                binding.friendShimmerLayout.showShimmer(true)
+                setLoadImage(binding.friendImageview)
+                val result = withContext(Dispatchers.IO) {
+                    viewModel.setFriendObserver(text.toString())
+                }
+                setImageOnResult(result, binding.friendImageview)
+                binding.friendShimmerLayout.stopShimmer()
+                binding.friendShimmerLayout.hideShimmer()
+            }
+        }
+    }
+
+    private fun setStrangerObserver() {
+        binding.strangerObserverEdittext.doOnTextChanged { text, _, _, _ ->
+            lifecycleScope.launch(Dispatchers.Main) {
+                binding.strangerShimmerLayout.showShimmer(true)
+                setLoadImage(binding.strangerImageview)
+                val result = withContext(Dispatchers.IO) {
+                    viewModel.setStrangerObserver(text.toString())
+                }
+                setImageOnResult(result, binding.strangerImageview)
+                binding.strangerShimmerLayout.stopShimmer()
+                binding.strangerShimmerLayout.hideShimmer()
+            }
+        }
+    }
+
+    private fun setImageOnResult(result: Boolean, imageView: ImageView) {
+        val type = if (result) ImageType.SUCCESS else ImageType.ERROR
+        val image = getImage(type)
+        loadImage(image, imageView)
+    }
+
+    private fun setLoadImage(imageView: ImageView) {
+        val image = getImage(ImageType.LOAD)
+        loadImage(image, imageView)
+    }
+
+    private fun loadImage(image: Int?, imageView: ImageView) {
+        Glide.with(binding.root)
+            .load(image)
+            .centerCrop()
+            .transform(RoundedCorners(100))
+            .transition(withCrossFade())
+            .into(imageView)
+    }
+
+    private fun getImage(type: ImageType): Int? {
+        val name = when (type) {
+            ImageType.LOAD -> "rounded_corners_white"
+            ImageType.ERROR -> "red"
+            ImageType.SUCCESS -> "green"
+        }
+        return context?.resources?.getIdentifier(
+            name,
+            "drawable",
+            context?.packageName
+        )
     }
 }

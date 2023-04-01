@@ -14,4 +14,10 @@ object FakeApi : Api {
     override suspend fun signUp(login: String, email: String, password: String): Boolean =
         login != "admin"
 
+    override suspend fun createTask() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun isExist(login: String): Boolean =
+        login == "friend" || login == "stranger"
 }

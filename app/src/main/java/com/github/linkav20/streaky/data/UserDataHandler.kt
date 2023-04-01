@@ -1,5 +1,9 @@
 package com.github.linkav20.streaky.data
 
+import android.util.Log
+import com.github.linkav20.streaky.ui.creationtask.model.CreationForm
+import com.github.linkav20.streaky.utils.models.TmpResultModel
+
 object UserDataHandler {
 
     fun checkDataSignUpFrom(
@@ -46,5 +50,32 @@ object UserDataHandler {
 
     private fun isEmailValid(value: String): Boolean =
         android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()
+
+
+    fun checkCreationForm(creationForm: CreationForm): TmpResultModel {
+        val title = checkIfNotEmpty(creationForm.title)
+        val deadline =
+            creationForm.deadline != null && Dates.isDateMoreThanNow(creationForm.deadline)
+        val notifyTime = if (creationForm.isNotify) creationForm.notifyTime != null else true
+        val repeat =
+            if (creationForm.isNotify) creationForm.repeat.firstOrNull { it.chosen } != null else true
+        val punishment = checkIfNotEmpty(creationForm.punishment)
+        val obs1 = checkIfNotEmpty(creationForm.observer1)
+        val obs2 = checkIfNotEmpty(creationForm.observer2)
+
+        // TODO some mistake message
+        var message = if (!title) "Title cannot be empty"
+        else if (!deadline) "Deadline cannot be empty or earlie than now"
+        else if (!notifyTime) "Notify time cannot be empty"
+        else if (!repeat) "You cannot repeat task never"
+        else if (!punishment) "Punishment cannot be empty"
+        else if (!obs1) "You need to add friend as observer"
+        else if (!obs2) "You need to add stranger as observer"
+        else "Something goes wrong"
+
+        val result = title && deadline && notifyTime && repeat && punishment && obs1 && obs2
+        if (result) message = "ok"
+        return TmpResultModel(result, message)
+    }
 
 }
