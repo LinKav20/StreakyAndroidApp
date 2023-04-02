@@ -57,8 +57,7 @@ object UserDataHandler {
         val deadline =
             creationForm.deadline != null && Dates.isDateMoreThanNow(creationForm.deadline)
         val notifyTime = if (creationForm.isNotify) creationForm.notifyTime != null else true
-        val repeat =
-            if (creationForm.isNotify) creationForm.repeat.firstOrNull { it.chosen } != null else true
+        val repeat = creationForm.repeat.firstOrNull { it.chosen } != null
         val punishment = checkIfNotEmpty(creationForm.punishment)
         val obs1 = checkIfNotEmpty(creationForm.observer1)
         val obs2 = checkIfNotEmpty(creationForm.observer2)

@@ -74,11 +74,7 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
     }
 
     override fun onItemClick(day: RepeatingDayModel) {
-        if (binding.notifySwitcher.isChecked) {
-            viewModel.updateDaysList(day)
-        } else {
-            viewModel.snackBar(binding.root, resources.getString(R.string.cannot_chose_repeat))
-        }
+        viewModel.updateDaysList(day)
     }
 
     private fun setTitle() {
@@ -168,8 +164,7 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
         val adapter = RepeatDayAdapter(this, activity.applicationContext, activity.window)
         binding.repeatDayRecyclerview.adapter = adapter
         viewModel.creationForm.observe(viewLifecycleOwner) {
-            val list = if (it.isNotify) it.repeat else viewModel.getDaysListAbb()
-            adapter.submitList(list)
+            adapter.submitList(it.repeat)
         }
     }
 
