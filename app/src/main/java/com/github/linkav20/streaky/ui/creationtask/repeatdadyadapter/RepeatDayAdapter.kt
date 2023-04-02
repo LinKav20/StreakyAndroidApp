@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.linkav20.streaky.databinding.RepeatingDayBinding
 import com.github.linkav20.streaky.databinding.RepeatingDayChosenBinding
-import com.github.linkav20.streaky.ui.creationtask.BlurEffectInCreationFragment
+import com.github.linkav20.streaky.ui.creationtask.blurEffectInCreationFragment
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
 
@@ -53,7 +53,7 @@ class RepeatDayAdapter(
         fun bind(day: RepeatingDayModel) {
             with(binding) {
                 dayButton.text = day.name
-                BlurEffectInCreationFragment(dayBlurview, fragment.binding, context, window)
+                blurEffectInCreationFragment(dayBlurview, fragment.binding, context, window)
 
                 binding.mainLayout.setOnClickListener {
                     fragment.onItemClick(day.copy(chosen = true))

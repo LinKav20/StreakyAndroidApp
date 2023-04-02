@@ -4,8 +4,7 @@ import android.content.Context
 import android.view.Window
 import com.github.linkav20.streaky.databinding.MyTaskItemBinding
 import com.github.linkav20.streaky.databinding.MyTaskItemLoadersBinding
-import com.github.linkav20.streaky.ui.creationtask.BlurEffectInMyTasksFragment
-import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
+import com.github.linkav20.streaky.ui.creationtask.blurEffectInMyTasksFragment
 import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
@@ -37,12 +36,12 @@ object MyTasksDelegates {
                 fragment.onItemClicked(item.id)
             }
 
-            BlurEffectInMyTasksFragment(binding.dayBlurview, fragment.binding, context, window)
+            blurEffectInMyTasksFragment(binding.dayBlurview, fragment.binding, context, window)
         }
     }
 
 
-    fun progressCategoryItemDelegate(
+    fun myTaskLoadersDelegate(
         fragment: MyTasksListFragment,
         context: Context,
         window: Window
@@ -52,7 +51,7 @@ object MyTasksDelegates {
         ) {
             bind {
                 binding.myTaskShimmerLayout.startShimmer()
-                BlurEffectInMyTasksFragment(binding.dayBlurview, fragment.binding, context, window)
+                blurEffectInMyTasksFragment(binding.dayBlurview, fragment.binding, context, window)
             }
         }
 }

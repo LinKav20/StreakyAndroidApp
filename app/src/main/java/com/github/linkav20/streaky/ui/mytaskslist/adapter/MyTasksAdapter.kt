@@ -3,7 +3,6 @@ package com.github.linkav20.streaky.ui.mytaskslist.adapter
 import android.content.Context
 import android.view.Window
 import androidx.recyclerview.widget.DiffUtil
-import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
 import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
@@ -16,7 +15,7 @@ class MyTasksAdapter(
 
     init {
         delegatesManager.addDelegate(MyTasksDelegates.myTaskItemDelegate(fragment, context, window))
-            .addDelegate(MyTasksDelegates.progressCategoryItemDelegate(fragment, context, window))
+            .addDelegate(MyTasksDelegates.myTaskLoadersDelegate(fragment, context, window))
     }
 
 
