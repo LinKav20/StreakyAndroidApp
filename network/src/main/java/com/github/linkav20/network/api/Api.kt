@@ -1,5 +1,8 @@
 package com.github.linkav20.network.api
 
+import retrofit2.http.GET
+import retrofit2.http.POST
+
 interface Api {
 
     suspend fun isExist(login: String, password: String): Boolean
@@ -17,4 +20,6 @@ interface Api {
     suspend fun updateTask()
 
     suspend fun getRandomLogin(): String
+
 }
+

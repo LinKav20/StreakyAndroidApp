@@ -32,10 +32,10 @@ class MyFriendTaskListViewModel @Inject constructor(
     }
 
     private fun getFakeData() = listOf(
-        FriendTaskUIModel(0, null, "First", true, false),
-        FriendTaskUIModel(1, null, "Second", false, false),
-        FriendTaskUIModel(2, null, "Third", true, false),
-        FriendTaskUIModel(3, null, "Chetvertiy", false, false)
+        FriendTaskUIModel(0, null, "First", true),
+        FriendTaskUIModel(1, null, "Second", false),
+        FriendTaskUIModel(2, null, "Third", true),
+        FriendTaskUIModel(3, null, "Chetvertiy", false)
     )
 
     private fun getLoaders() = IntRange(1, 6).map { FriendTaskUILoader }
@@ -57,12 +57,33 @@ class MyFriendTaskListViewModel @Inject constructor(
         Utils.showSnackBar(view, text, context.resources)
     }
 
-    fun tmpDelete(id: Int) {
+    fun isSeen(id: Int): Boolean {
+        val list = _data.value?.toMutableList() ?: return true
+        val isDone = (list[id] as FriendTaskUIModel).isDone
+        if (isDone) {
+            viewModelScope.launch { sendSeen(id) }
+        }
+        return isDone
+    }
+
+    fun isNotify(id: Int): Boolean {
+        val list = _data.value?.toMutableList() ?: return false
+        val isDone = (list[id] as FriendTaskUIModel).isDone
+        if (!isDone) {
+            viewModelScope.launch { notifyUser() }
+        }
+        return !isDone
+    }
+
+    suspend fun notifyUser() {
+        // TODO notify network user
+    }
+
+    suspend fun sendSeen(id: Int) {
+        // TODO seen network user
         val list = _data.value?.toMutableList() ?: return
         list.removeAt(id)
         _data.postValue(list)
     }
-
-
 
 }

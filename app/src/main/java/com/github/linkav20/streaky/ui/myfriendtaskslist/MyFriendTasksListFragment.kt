@@ -124,18 +124,24 @@ class MyFriendTasksListFragment : BaseFragment() {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     when (direction) {
                         ItemTouchHelper.RIGHT -> {
-                            viewModel.tmpDelete(viewHolder.bindingAdapterPosition)
-                            viewModel.snackBar(root, "Seen")
+                            val needToNotify = viewModel.isSeen(viewHolder.bindingAdapterPosition)
+                            if (!needToNotify) {
+                                adapter.notifyItemChanged(viewHolder.bindingAdapterPosition)
+                                viewModel.snackBar(root, "Not competes, cannot be seen")
+                            } else
+                                viewModel.snackBar(root, "Seen")
                         }
                         ItemTouchHelper.LEFT -> {
-                            //viewModel.tmpNotify(viewHolder.bindingAdapterPosition)
+                            val needToNotify = viewModel.isNotify(viewHolder.bindingAdapterPosition)
                             adapter.notifyItemChanged(viewHolder.bindingAdapterPosition)
-                            viewModel.snackBar(root, "Notify")
+                            if (needToNotify) {
+                                viewModel.snackBar(root, "Notify")
+                            } else
+                                viewModel.snackBar(root, "Notify is not nessasry")
                         }
                     }
                 }
             }).attachToRecyclerView(tasksRecyclerview)
         }
     }
-
 }

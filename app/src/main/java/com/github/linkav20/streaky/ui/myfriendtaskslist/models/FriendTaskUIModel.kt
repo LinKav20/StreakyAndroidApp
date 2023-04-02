@@ -4,6 +4,5 @@ data class FriendTaskUIModel(
     override val id: Long,
     val image: String?,
     val title: String,
-    val isDone: Boolean,
-    val isSeen: Boolean
+    val isDone: Boolean
 ) : FriendTaskUI
