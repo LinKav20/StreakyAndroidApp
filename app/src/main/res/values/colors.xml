@@ -6,6 +6,8 @@
     <color name="teal_200">#ECE0FF</color>
     <color name="teal_700">#F9F4FF</color>
     <color name="black">#FF000000</color>
+    <color name="black_opacity_10">#1A000000</color>
+    <color name="white_opacity_10">#1AFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_opacity_60">#99FFFFFF</color>
     <color name="white_opacity_40">#66FFFFFF</color>
@@ -13,5 +15,7 @@
     <color name="lavender">#FFC3BEFF</color>
     <color name="lavender_light">#FFBCB9DB</color>
     <color name="orange">#FFFF845E</color>
+    <color name="lavender_opacity_40">#66C3BEFF</color>
+    <color name="orange_opacity_40">#66FF845E</color>
     <color name="shimmer_gray">#D5D5D5</color>
 </resources>
