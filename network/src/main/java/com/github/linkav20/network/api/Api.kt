@@ -15,4 +15,6 @@ interface Api {
     suspend fun getAllTasks()
 
     suspend fun updateTask()
+
+    suspend fun getRandomLogin(): String
 }

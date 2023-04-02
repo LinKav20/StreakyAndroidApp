@@ -49,10 +49,7 @@ class MyTaskListViewModel @Inject constructor(
     private fun getFakeData() = listOf(
         MyTaskUIModel(0, "Lol", true, false),
         MyTaskUIModel(1, "Kekekkeke", true, false),
-        MyTaskUIModel(2, "--", true, true),
-        MyTaskUIModel(3, "<Maedkjvnlm;lv';efllickudjyxhtcfgvbjknjlm;lkj>", false, false),
-        MyTaskUIModel(4, "<Maedkjvnlm;lv';efllickudjyxhtcfgvbjknjlm;lkj>", false, true),
-        MyTaskUIModel(5, "--", true, false)
+        MyTaskUIModel(2, "--", true, true)
     )
 
     private fun getLoaders() = IntRange(1, 6).map { MyTaskUILoading }

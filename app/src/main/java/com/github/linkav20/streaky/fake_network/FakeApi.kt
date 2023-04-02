@@ -25,6 +25,10 @@ object FakeApi : Api {
     override suspend fun updateTask() {
     }
 
+    override suspend fun getRandomLogin(): String {
+        return "lollolololol"
+    }
+
     override suspend fun isExist(login: String): Boolean =
         login == "friend" || login == "stranger"
 }

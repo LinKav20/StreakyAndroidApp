@@ -22,6 +22,7 @@ import com.github.linkav20.streaky.ui.creationtask.model.ImageType
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
 import com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter.RepeatDayAdapter
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
@@ -54,7 +55,9 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
         setTitle()
         setPunishment()
         setFriendObserver()
-        setStrangerObserver()
+        lifecycleScope.launch {
+            setStrangerObserver()
+        }
 
         binding.createButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
@@ -232,19 +235,16 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
         }
     }
 
-    private fun setStrangerObserver() {
-        binding.strangerObserverEdittext.doOnTextChanged { text, _, _, _ ->
-            lifecycleScope.launch(Dispatchers.Main) {
-                binding.strangerShimmerLayout.showShimmer(true)
-                setLoadImage(binding.strangerImageview)
-                val result = withContext(Dispatchers.IO) {
-                    viewModel.setStrangerObserver(text.toString())
-                }
-                setImageOnResult(result, binding.strangerImageview)
-                binding.strangerShimmerLayout.stopShimmer()
-                binding.strangerShimmerLayout.hideShimmer()
-            }
-        }
+    private suspend fun setStrangerObserver() {
+        binding.strangerShimmerLayout.showShimmer(true)
+        setLoadImage(binding.strangerImageview)
+        val user = lifecycleScope.async {
+            viewModel.getStranger()
+        }.await()
+        binding.strangerObserverEdittext.setText(user.login)
+        setImageOnResult(true, binding.strangerImageview)
+        binding.strangerShimmerLayout.stopShimmer()
+        binding.strangerShimmerLayout.hideShimmer()
     }
 
     private fun setImageOnResult(result: Boolean, imageView: ImageView) {

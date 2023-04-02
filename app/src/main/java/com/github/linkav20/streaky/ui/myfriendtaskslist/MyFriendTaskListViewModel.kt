@@ -35,17 +35,8 @@ class MyFriendTaskListViewModel @Inject constructor(
         FriendTaskUIModel(0, null, "First", true, false),
         FriendTaskUIModel(1, null, "Second", false, false),
         FriendTaskUIModel(2, null, "Third", true, false),
-        FriendTaskUIModel(3, null, "Chetvertiy", false, false),
-        FriendTaskUIModel(4, null, "5", false, false),
-        FriendTaskUIModel(5, null, "6", false, false),
-        FriendTaskUIModel(6, null, "7", false, false),
-        FriendTaskUIModel(7, null, "8", false, false),
-        FriendTaskUIModel(8, null, "9", false, false),
-        FriendTaskUIModel(9, null, "51", false, false),
-        FriendTaskUIModel(11, null, "5222", false, false),
-        FriendTaskUIModel(10, null, "531145", false, false),
-
-        )
+        FriendTaskUIModel(3, null, "Chetvertiy", false, false)
+    )
 
     private fun getLoaders() = IntRange(1, 6).map { FriendTaskUILoader }
 

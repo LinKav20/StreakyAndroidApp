@@ -14,6 +14,7 @@ import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.creationtask.model.CreationForm
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
+import com.github.linkav20.streaky.ui.creationtask.model.User
 import com.github.linkav20.streaky.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -54,6 +55,10 @@ class CreationTaskViewModel @Inject constructor(
     fun setNotifyInCreationForm(value: Boolean) {
         _creationForm.postValue(_creationForm.value?.copy(isNotify = value))
     }
+
+    suspend fun getStranger() = viewModelScope.async(Dispatchers.IO) {
+        User(1,"lol",  FakeApi.getRandomLogin())
+    }.await()
 
     fun getTimeForNotifyField(): String {
         val creation = creationForm.value

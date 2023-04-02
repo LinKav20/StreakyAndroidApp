@@ -346,6 +346,8 @@
                 android:maxLines="1"
                 android:paddingStart="@dimen/start_text_edittext"
 
+                android:enabled="false"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/stranger_shimmer_layout"
                 app:layout_constraintTop_toBottomOf="@+id/stranger_textview" />
