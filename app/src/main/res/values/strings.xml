@@ -58,6 +58,7 @@
     <string name="previous">prev</string>
     <string name="now">now</string>
     <string name="next">next</string>
+    <string name="no_tasks">There\'no any tasks you need to observe</string>
 
     // Errors texts
     <string name="error_cant_save_user_info">Cannot save user info</string>

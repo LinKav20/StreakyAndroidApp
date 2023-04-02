@@ -33,9 +33,9 @@ class MyFriendTaskListViewModel @Inject constructor(
 
     private fun getFakeData() = listOf(
         FriendTaskUIModel(0, null, "First", true),
-        FriendTaskUIModel(1, null, "Second", false),
+        FriendTaskUIModel(1, null, "Second", true),
         FriendTaskUIModel(2, null, "Third", true),
-        FriendTaskUIModel(3, null, "Chetvertiy", false)
+        FriendTaskUIModel(3, null, "Chetvertiy", true)
     )
 
     private fun getLoaders() = IntRange(1, 6).map { FriendTaskUILoader }

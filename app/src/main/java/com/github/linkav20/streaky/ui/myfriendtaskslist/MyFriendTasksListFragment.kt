@@ -61,8 +61,17 @@ class MyFriendTasksListFragment : BaseFragment() {
         binding.tasksRecyclerview.adapter = adapter
         viewModel.data.observe(viewLifecycleOwner) {
             adapter.items = it
+            setNoTasksTitle(it.isEmpty())
         }
         initSwipeCallback()
+    }
+
+    private fun setNoTasksTitle(value: Boolean) {
+        if (value) {
+            binding.noneTextview.visibility = View.VISIBLE
+        } else {
+            binding.noneTextview.visibility = View.GONE
+        }
     }
 
     private fun initSwipeCallback() {
