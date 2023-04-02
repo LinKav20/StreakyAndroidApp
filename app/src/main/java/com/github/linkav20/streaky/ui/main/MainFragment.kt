@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentMainBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.github.linkav20.streaky.ui.creationtask.BlurEffectInFragmentMain
 import com.github.linkav20.streaky.ui.creationtask.CreationTaskFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment

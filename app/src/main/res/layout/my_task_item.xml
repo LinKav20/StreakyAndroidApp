@@ -26,7 +26,9 @@
 
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/layout_margin"
-                android:maxWidth="180dp"
+                android:maxWidth="120dp"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:text="@string/fake_title"
                 android:textColor="@color/black"
 
@@ -53,8 +55,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_margin="10dp"
-
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -72,6 +72,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="10dp"
+
                         android:button="@drawable/checkbox_selector"
                         android:checked="true"
 
@@ -84,8 +86,6 @@
                     android:id="@+id/today_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:layout_margin="10dp"
 
                     android:orientation="vertical">
 
@@ -107,6 +107,8 @@
                         android:button="@drawable/checkbox_selector"
                         android:checked="true"
 
+                        android:layout_margin="10dp"
+
                         android:minWidth="0dp"
                         android:minHeight="0dp" />
 
@@ -116,8 +118,6 @@
                     android:id="@+id/next_day_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:layout_margin="10dp"
 
                     android:orientation="vertical">
 
@@ -136,8 +136,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:layout_margin="10dp"
+
                         android:button="@drawable/checkbox_selector"
-                        android:checked="true"
+                        android:checked="false"
+                        android:enabled="false"
 
                         android:minWidth="0dp"
                         android:minHeight="0dp" />

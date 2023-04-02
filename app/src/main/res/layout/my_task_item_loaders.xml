@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/my_task_shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/day_blurview"
+            style="@style/blurViewBase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/title_textview"
+                    android:layout_width="120dp"
+                    android:layout_height="20dp"
+
+                    android:layout_gravity="center"
+                    android:background="@drawable/load_bg"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/selector_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center|end"
+                    android:layout_margin="@dimen/layout_margin"
+
+                    android:orientation="horizontal"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/previous_day_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/previous_day_textview"
+                            style="@style/TaskDay"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:text="@string/previous" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/previous_day_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="10dp"
+
+                            android:button="@drawable/checkbox_selector"
+                            android:checked="false"
+
+                            android:minWidth="0dp"
+                            android:minHeight="0dp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/today_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/today_textview"
+                            style="@style/TaskDay"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:text="@string/now" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/today_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="10dp"
+                            android:button="@drawable/checkbox_selector"
+
+                            android:checked="false"
+
+                            android:minWidth="0dp"
+                            android:minHeight="0dp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/next_day_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/next_day_textview"
+                            style="@style/TaskDay"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:text="@string/next" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/next_day_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="10dp"
+
+                            android:button="@drawable/checkbox_selector"
+                            android:checked="false"
+                            android:enabled="false"
+
+                            android:minWidth="0dp"
+                            android:minHeight="0dp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </eightbitlab.com.blurview.BlurView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</FrameLayout>

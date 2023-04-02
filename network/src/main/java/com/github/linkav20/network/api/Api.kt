@@ -11,4 +11,8 @@ interface Api {
     suspend fun isExist(login: String): Boolean
 
     suspend fun createTask()
+
+    suspend fun getAllTasks()
+
+    suspend fun updateTask()
 }

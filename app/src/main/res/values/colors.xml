@@ -13,4 +13,5 @@
     <color name="lavender">#FFC3BEFF</color>
     <color name="lavender_light">#FFBCB9DB</color>
     <color name="orange">#FFFF845E</color>
+    <color name="shimmer_gray">#D5D5D5</color>
 </resources>

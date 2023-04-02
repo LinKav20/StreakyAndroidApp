@@ -41,14 +41,16 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="CreationNumber"  parent="Text">
+    <style name="CreationNumber">
+        <item name="fontFamily">@font/neue_machina_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
     </style>
 
 
-    <style name="TaskDay" paremt="Text">
-        <item name="android:textColor">@color/orange</item>
+    <style name="TaskDay">
+        <item name="fontFamily">@font/neue_machina_regular</item>
+        <item name="android:textColor">@color/lavender</item>
         <item name="android:textSize">10sp</item>
     </style>
 </resources>

@@ -18,6 +18,13 @@ object FakeApi : Api {
         TODO("Not yet implemented")
     }
 
+    override suspend fun getAllTasks() {
+
+    }
+
+    override suspend fun updateTask() {
+    }
+
     override suspend fun isExist(login: String): Boolean =
         login == "friend" || login == "stranger"
 }
