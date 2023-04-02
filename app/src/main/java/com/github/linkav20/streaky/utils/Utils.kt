@@ -14,7 +14,7 @@ object Utils {
             Snackbar.LENGTH_SHORT
         )
         val snackBarView = snackbar.view
-        snackBarView.translationY = Utils.convertDpToPixel(50f, resources)
+        snackBarView.translationY = Utils.convertDpToPixel(100f, resources)
         snackbar.show()
     }
 
