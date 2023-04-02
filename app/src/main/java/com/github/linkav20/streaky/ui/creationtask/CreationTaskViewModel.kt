@@ -53,6 +53,10 @@ class CreationTaskViewModel @Inject constructor(
 
     fun setNotifyInCreationForm(value: Boolean) {
         _creationForm.postValue(_creationForm.value?.copy(isNotify = value))
+        val data = _creationForm.value?.copy(isNotify = value)
+        Log.d("CREATION","Param is ${value}")
+        Log.d("CREATION","Data is ${data?.isNotify}")
+        Log.d("CREATION","Notify is ${_creationForm.value?.isNotify}")
     }
 
     fun getTimeForNotifyField(): String {
