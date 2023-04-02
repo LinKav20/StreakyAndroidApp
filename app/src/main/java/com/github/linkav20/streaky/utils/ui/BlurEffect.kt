@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewOutlineProvider
 import android.view.Window
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
+import com.github.linkav20.streaky.databinding.FragmentMainBinding
 import eightbitlab.com.blurview.BlurView
 import eightbitlab.com.blurview.RenderScriptBlur
 

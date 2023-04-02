@@ -54,11 +54,16 @@
 
     // Tasks List
     <string name="title_my_list">Today</string>
+    <string name="fake_title">Designation</string>
+    <string name="previous">prev</string>
+    <string name="now">now</string>
+    <string name="next">next</string>
 
     // Errors texts
     <string name="error_cant_save_user_info">Cannot save user info</string>
     <string name="failed_try_again">Failed! Please, try again</string>
     <string name="activity_null">Something goes wrong! Cannot open creation tab</string>
     <string name="cannot_chose_repeat">"Cannot chose repeating, switch on notify tumbler</string>
+
 
 </resources>

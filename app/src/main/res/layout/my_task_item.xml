@@ -1,30 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:strokeColor="@color/lavender"
-    app:strokeWidth="10dp"
-    android:layout_margin="@dimen/layout_margin">
+    android:clickable="true">
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/star_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-
-        android:background="@android:color/transparent"
-        android:src="@drawable/lavender_star_1x" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title_textview"
-        style="@style/CreationSubtitles"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/day_blurview"
+        style="@style/blurViewBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="false">
 
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/layout_margin"
-        android:text="Lollilol"
-        android:textColor="@color/black" />
-</androidx.cardview.widget.CardView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_textview"
+                style="@style/CreationSubtitles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/layout_margin"
+                android:maxWidth="180dp"
+                android:text="@string/fake_title"
+                android:textColor="@color/black"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/selector_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center|end"
+                android:layout_margin="@dimen/layout_margin"
+
+                android:orientation="horizontal"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/previous_day_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="10dp"
+
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/previous_day_textview"
+                        style="@style/TaskDay"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:text="@string/previous" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/previous_day_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:button="@drawable/checkbox_selector"
+                        android:checked="true"
+
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/today_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="10dp"
+
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/today_textview"
+                        style="@style/TaskDay"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:text="@string/now" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/today_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:button="@drawable/checkbox_selector"
+                        android:checked="true"
+
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/next_day_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="10dp"
+
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/next_day_textview"
+                        style="@style/TaskDay"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:text="@string/next" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/next_day_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:button="@drawable/checkbox_selector"
+                        android:checked="true"
+
+                        android:minWidth="0dp"
+                        android:minHeight="0dp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eightbitlab.com.blurview.BlurView>
+</FrameLayout>
