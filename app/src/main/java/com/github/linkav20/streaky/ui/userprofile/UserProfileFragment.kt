@@ -1,5 +1,6 @@
 package com.github.linkav20.streaky.ui.userprofile
 
+import android.app.Activity
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.LayoutInflater
@@ -11,8 +12,10 @@ import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentSignupBinding
 import com.github.linkav20.streaky.databinding.FragmentUserProfileBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
+import com.github.linkav20.streaky.ui.mytaskslist.adapter.MyTasksAdapter
 import com.github.linkav20.streaky.ui.showmytask.ShowMyTaskComponent
 import com.github.linkav20.streaky.ui.showmytask.ShowMyTaskViewModel
+import com.github.linkav20.streaky.ui.userprofile.adapter.NotificationsAdapter
 
 class UserProfileFragment : BaseFragment() {
 
@@ -33,5 +36,14 @@ class UserProfileFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+        val adapter = NotificationsAdapter()
+        binding.notificationRecyclerview.adapter = adapter
+        viewModel.notification.observe(viewLifecycleOwner) {
+            adapter.items = it
+        }
     }
 }
