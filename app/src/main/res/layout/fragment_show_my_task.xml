@@ -165,7 +165,6 @@
                 app:headerColor="@color/white_opacity_60"
                 app:headerLabelColor="@color/black"
                 app:highlightedDaysLabelsColor="@color/orange"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
 
                 app:layout_constraintHorizontal_bias="0.0"
@@ -202,13 +201,23 @@
                         android:id="@+id/day_textview"
                         style="@style/ShowTasksTitles"
 
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:text="@string/temp_date"
 
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/isDone_image"
+
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+
+                        android:src="@drawable/ic_lavender_star"
+
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
@@ -270,7 +279,6 @@
 
                         android:enabled="false"
 
-                        android:hint="@string/observe_friend_hint"
                         android:lines="1"
                         android:maxLines="1"
 
@@ -325,7 +333,6 @@
 
                         android:enabled="false"
 
-                        android:hint="@string/observe_stranger_hint"
                         android:lines="1"
                         android:maxLines="1"
 

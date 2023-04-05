@@ -66,6 +66,7 @@
     <string name="failed_try_again">Failed! Please, try again</string>
     <string name="activity_null">Something goes wrong! Cannot open creation tab</string>
     <string name="cannot_chose_repeat">"Cannot chose repeating, switch on notify tumbler</string>
+    <string name="something_goes_wrong">Something goes wrong</string>
 
 
 </resources>
