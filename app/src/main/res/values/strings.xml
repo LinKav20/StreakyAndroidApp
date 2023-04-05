@@ -42,6 +42,7 @@
     <string name="temp_date">21.11.2002</string>
     <string name="temp_time">23:15</string>
     <string name="create_button">Create</string>
+    <string name="repeat_every">Repeat every</string>
 
     // Profile Fragment
     <string name="nickname">Nickname</string>

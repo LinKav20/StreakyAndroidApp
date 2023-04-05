@@ -48,6 +48,10 @@ class MyFriendTasksListFragment : BaseFragment() {
         setAdapter()
     }
 
+    fun onItemClickListener(id: Long) {
+        viewModel.snackBar(binding.root, "Clicked on item with ID: $id")
+    }
+
     private fun setAdapter() {
         val act = activity
         if (act != null) {

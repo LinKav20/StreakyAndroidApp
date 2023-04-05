@@ -48,7 +48,7 @@
                     android:layout_gravity="center"
 
                     android:background="@android:color/transparent"
-                    android:src="@drawable/back_arrow" />
+                    android:src="@drawable/ic_back_arrow_white" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/creation_title"

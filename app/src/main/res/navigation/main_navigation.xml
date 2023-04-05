@@ -22,5 +22,36 @@
         <action
             android:id="@+id/action_mainFragment_to_creation_fragment"
             app:destination="@id/creation_fragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_showMyTaskFragment"
+            app:destination="@id/showMyTaskFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/showMyTaskFragment"
+        android:name="com.github.linkav20.streaky.ui.showmytask.ShowMyTaskFragment"
+        android:label="ShowMyTaskFragment" >
+        <action
+            android:id="@+id/action_showMyTaskFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_showMyTaskFragment_to_myTasksListFragment"
+            app:destination="@id/myTasksListFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/myTasksListFragment"
+        android:name="com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment"
+        android:label="fragment_tasks_list"
+        tools:layout="@layout/fragment_tasks_list" >
+        <action
+            android:id="@+id/action_myTasksListFragment_to_showMyTaskFragment"
+            app:destination="@id/showMyTaskFragment" />
     </fragment>
 </navigation>

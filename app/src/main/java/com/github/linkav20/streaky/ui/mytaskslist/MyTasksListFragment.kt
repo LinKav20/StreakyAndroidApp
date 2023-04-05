@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentTasksListBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
+import com.github.linkav20.streaky.ui.main.MainFragmentDirections
 import com.github.linkav20.streaky.ui.mytaskslist.adapter.MyTasksAdapter
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUIModel
 import kotlinx.coroutines.launch
@@ -59,5 +62,8 @@ class MyTasksListFragment : BaseFragment(), OnItemCLickListener {
 
     override fun onItemClicked(taskId: Long) {
         viewModel.snackBar(binding.root, "Clicked on item with ID: $taskId")
+        val action =
+            MainFragmentDirections.actionMainFragmentToShowMyTaskFragment(taskId.toInt())
+        findNavController().navigate(action)
     }
 }

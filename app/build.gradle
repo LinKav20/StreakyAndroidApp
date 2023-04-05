@@ -75,6 +75,8 @@ dependencies {
 
     implementation libs.swipedecprator
 
+    implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
+
     implementation project(':network')
 
     testImplementation 'junit:junit:4.13.2'

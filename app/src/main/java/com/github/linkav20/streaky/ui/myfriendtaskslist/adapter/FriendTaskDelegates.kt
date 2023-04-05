@@ -54,6 +54,10 @@ object FriendTaskDelegates {
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.avatarImageView)
 
+            binding.mainLayout.setOnClickListener {
+                fragment.onItemClickListener(item.id)
+            }
+
             blurEffectInMyFriendTasksFragment(binding.dayBlurview, fragment.binding, context, window)
         }
     }

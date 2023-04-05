@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bg_white">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="@dimen/layout_margin"
+
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/back_arrow_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_back_arrow_black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title_textview"
+                    style="@style/AccentTitleLowBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/layout_margin_top"
+                    android:gravity="center"
+                    android:text="@string/fake_title" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/do_until_textview"
+                style="@style/ShowTasksTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/layout_margin"
+
+                android:text="@string/do_until_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_layout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/do_until_button"
+                style="@style/ShowTaskNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/layout_margin"
+
+                android:clickable="true"
+                android:gravity="end"
+
+                android:text="@string/temp_date"
+
+                app:layout_constraintBottom_toBottomOf="@+id/do_until_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/do_until_textview"
+                app:layout_constraintTop_toTopOf="@+id/do_until_textview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/repeat_textview"
+                style="@style/ShowTasksTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/layout_margin"
+
+                android:text="@string/repeat_every"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/do_until_textview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/repeat_button"
+                style="@style/ShowTaskNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="@dimen/layout_margin"
+
+                android:clickable="true"
+                android:gravity="end"
+
+                android:text="@string/monday_abb"
+
+                app:layout_constraintBottom_toBottomOf="@+id/repeat_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/repeat_textview"
+                app:layout_constraintTop_toTopOf="@+id/repeat_textview" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/punishment_textview"
+                style="@style/ShowTasksTitles"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/layout_margin"
+
+                android:text="@string/punishment_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repeat_textview" />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/punishment_blurview"
+                style="@style/blurViewBase"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/punishment_textview">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/punishment_content_text_view"
+                    style="@style/ShowTaskNumber"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="10dp"
+
+                    android:text="@string/punishment_hint" />
+            </eightbitlab.com.blurview.BlurView>
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendar_view"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/layout_margin"
+
+                app:forwardButtonSrc="@drawable/ic_next_button_calendar_black"
+                app:headerColor="@color/white_opacity_60"
+                app:headerLabelColor="@color/black"
+                app:highlightedDaysLabelsColor="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/punishment_blurview"
+                app:layout_constraintVertical_bias="0.0"
+                app:previousButtonSrc="@drawable/ic_previous_button_calendar_black"
+                app:selectionColor="@color/lavender"
+                app:selectionLabelColor="@color/orange"
+                app:todayLabelColor="@color/lavender"
+
+                app:typeface="@font/neue_machina_regular" />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/info_blurview"
+                style="@style/blurViewBase"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_view">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/day_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="10dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/day_textview"
+                        style="@style/ShowTasksTitles"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/temp_date"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/divider"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+
+                        android:background="@drawable/rounded_corners_white"
+
+                        android:elevation="2dp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/day_textview" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/friend_shimmer_layout"
+                        android:layout_width="@dimen/show_task_image_size"
+                        android:layout_height="@dimen/show_task_image_size"
+
+                        android:layout_margin="@dimen/layout_margin"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/show_task_image_size"
+                            android:layout_height="@dimen/show_task_image_size">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/friend_imageview"
+                                android:layout_width="@dimen/show_task_image_size"
+                                android:layout_height="@dimen/show_task_image_size"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                tools:background="@color/orange" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/friend_status_imageview"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+
+                                tools:background="@color/lavender" />
+                        </RelativeLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/friend_edittext"
+                        style="@style/ShowTaskNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_margin"
+
+                        android:enabled="false"
+
+                        android:hint="@string/observe_friend_hint"
+                        android:lines="1"
+                        android:maxLines="1"
+
+                        android:paddingStart="@dimen/start_text_edittext"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/friend_shimmer_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/stranger_shimmer_layout"
+                        android:layout_width="@dimen/show_task_image_size"
+                        android:layout_height="@dimen/show_task_image_size"
+
+                        android:layout_margin="@dimen/layout_margin"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toBottomOf="@+id/friend_shimmer_layout">
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/show_task_image_size"
+                            android:layout_height="@dimen/show_task_image_size">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/stranger_imageview"
+                                android:layout_width="@dimen/show_task_image_size"
+                                android:layout_height="@dimen/show_task_image_size"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                tools:background="@color/orange" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/stranger_status_imageview"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+
+                                tools:background="@color/lavender" />
+                        </RelativeLayout>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/stranger_edittext"
+                        style="@style/ShowTaskNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_margin"
+
+                        android:enabled="false"
+
+                        android:hint="@string/observe_stranger_hint"
+                        android:lines="1"
+                        android:maxLines="1"
+
+                        android:paddingStart="@dimen/start_text_edittext"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/stranger_shimmer_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/friend_shimmer_layout" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </eightbitlab.com.blurview.BlurView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_blurview" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

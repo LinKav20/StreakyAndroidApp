@@ -33,8 +33,8 @@ class MyFriendTaskListViewModel @Inject constructor(
 
     private fun getFakeData() = listOf(
         FriendTaskUIModel(0, null, "First", true),
-        FriendTaskUIModel(1, null, "Second", true),
-        FriendTaskUIModel(2, null, "Third", true),
+        FriendTaskUIModel(1, null, "Second", false),
+        FriendTaskUIModel(2, null, "Third", false),
         FriendTaskUIModel(3, null, "Chetvertiy", true)
     )
 
