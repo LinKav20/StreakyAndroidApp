@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentSignupBinding
 import com.github.linkav20.streaky.databinding.FragmentUserProfileBinding
@@ -37,6 +38,9 @@ class UserProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+        binding.settingsImageview.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_editUserInfoFragment)
+        }
     }
 
     private fun initAdapter() {

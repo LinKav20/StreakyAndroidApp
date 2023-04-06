@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
@@ -31,12 +32,14 @@ class UserProfileViewModel @Inject constructor(
 
     private fun getLoaders() = IntRange(1, 6).map { NotificationInProgress }
 
-    private fun getFakeData() = listOf(NotidicationModel(0,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"),
-        NotidicationModel(1,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"),
-        NotidicationModel(2,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"),
-        NotidicationModel(3,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"),
-        NotidicationModel(4,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"),
-        NotidicationModel(5,"gfhjdknslm;'lkfjnhbgvsbjknl;kjhvgdsbjknalmkmnjbhdvg"))
+    private fun getFakeData() = listOf(
+        NotidicationModel(0, context.resources.getString(R.string.notification_lorem)),
+        NotidicationModel(1, context.resources.getString(R.string.notification_lorem)),
+        NotidicationModel(2, context.resources.getString(R.string.notification_lorem)),
+        NotidicationModel(3, context.resources.getString(R.string.notification_lorem)),
+        NotidicationModel(4, context.resources.getString(R.string.notification_lorem)),
+        NotidicationModel(5, context.resources.getString(R.string.notification_lorem))
+    )
 
     private fun initData() {
         _notification.postValue(getLoaders())

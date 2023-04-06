@@ -15,7 +15,7 @@
     </style>
 
     <style name="SecondaryTitle" parent="Title">
-        <item name="android:textColor">@color/white_opacity_60</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">36sp</item>
     </style>
 

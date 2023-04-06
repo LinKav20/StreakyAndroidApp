@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bg_lavender">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_margin="@dimen/layout_margin"
+
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back_arrow_button"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/layout_margin"
+
+                android:background="@android:color/transparent"
+
+                android:src="@drawable/ic_back_arrow_white"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profile_imageview"
+                android:layout_width="@dimen/profile_image_size"
+                android:layout_height="@dimen/profile_image_size"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/orange" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:layout_marginTop="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_imageview" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/mail_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_edittext" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/text_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mail_edittext" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/change_password_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+
+                android:layout_marginTop="60dp"
+                android:background="@drawable/change_password_button_settings"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_edittext"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/delete_account_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+
+                android:layout_marginTop="@dimen/layout_margin"
+                android:background="@drawable/delete_account_button"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_password_button"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
