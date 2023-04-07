@@ -61,7 +61,7 @@ class ShowMyTaskViewModel @Inject constructor(
         // TODO goto network
         return ShowDayInfoModel(
             Dates.convertDateToString(date),
-            TaskStatus.DONE,
+            TaskStatus.FUTURE,
             false,
             true
         )

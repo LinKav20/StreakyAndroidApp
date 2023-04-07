@@ -32,24 +32,24 @@ open class BaseViewModel : ViewModel() {
     fun getImageByType(type: ImageType, context: Context): Int {
         val name = when (type) {
             ImageType.LOAD -> "rounded_corners_white"
-            ImageType.ERROR -> "red"
-            ImageType.SUCCESS -> "green"
+            ImageType.ERROR -> "rounded_corners_orange"
+            ImageType.SUCCESS -> "profile_image"
         }
         return getImageByName(name, context)
     }
 
     fun getImageByStatus(type: TaskStatus, context: Context): Int {
         val name = when (type) {
-            TaskStatus.DONE -> "ic_orange_star"
-            TaskStatus.MISSED -> "ic_lavender_star"
-            TaskStatus.FUTURE -> "ic_lavender_star"
-            TaskStatus.NOT_NEED -> "ic_lavender_star"
+            TaskStatus.DONE -> "ic_done_icon"
+            TaskStatus.MISSED -> "ic_missed_icon"
+            TaskStatus.FUTURE -> "ic_future_icon"
+            TaskStatus.NOT_NEED -> "ic_not_need_icon"
         }
         return getImageByName(name, context)
     }
 
     fun getImageBySeen(isSeen: Boolean, context: Context): Int {
-        val name = if (isSeen) "ic_orange_star" else "ic_lavender_star"
+        val name = if (isSeen) "ic_seen_icon" else "ic_not_seen_icon"
         return getImageByName(name, context)
     }
 

@@ -13,13 +13,22 @@
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_back_arrow_black.xml" value="0.159" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_back_arrow_white.xml" value="0.159" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.124" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_done_icon.xml" value="0.1845" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_future_icon.xml" value="0.1845" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_lavender_star.xml" value="0.124" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_missed_icon.xml" value="0.1845" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_next_button_calendar_black.xml" value="0.159" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_nit_need_icon.xml" value="0.1845" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_not_seen_icon.xml" value="0.1845" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_notification_icon.xml" value="0.1845" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_orange_star.xml" value="0.124" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_seen_icon.xml" value="0.1845" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/ic_settings_icon.xml" value="0.1845" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/item_selector.xml" value="0.1245" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/load_bg.xml" value="0.133" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners.xml" value="0.124" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners_orange.xml" value="0.1845" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners_white.xml" value="0.139" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/rounded_corners_white_60.xml" value="0.134" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/drawable/separator.xml" value="0.1655" />
@@ -41,7 +50,7 @@
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_show_my_task.xml" value="0.264" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_signup.xml" value="0.176" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_tasks_list.xml" value="0.136" />
-        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_user_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_user_profile.xml" value="0.4" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/fragment_user_task_list.xml" value="0.2" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/friend_task_item.xml" value="0.2" />
         <entry key="..\:/Users/Linok/Desktop/treaty course work/StreakyAndroidApp/app/src/main/res/layout/friend_task_item_loader.xml" value="0.16799999999999998" />

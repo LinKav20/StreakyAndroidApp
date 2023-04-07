@@ -63,7 +63,7 @@ class UserProfileFragment : BaseFragment() {
         binding.nicknameTextview.text = user.login
         viewModel.setResourceImageWithGlide(
             binding.root,
-            viewModel.getImageForAvatar("green", requireContext()),
+            viewModel.getImageForAvatar("profile_image", requireContext()),
             binding.profileImageview,
             500
         )
