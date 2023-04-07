@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.streaky.ui.edituserinfo.model.UserUIModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -26,6 +27,11 @@ class EditUserInfoViewModel @Inject constructor(
             putNullForString(editor, USER_PREFERENCES_PASSWORD)
             editor?.apply()
         }
+    }
+
+    suspend fun getUserInfo(): UserUIModel {
+        // api get user
+        return UserUIModel("Flinkou", "flinkou@mail.ru", null)
     }
 
     private suspend fun getSharedPreferencesEditor() = viewModelScope.async(Dispatchers.IO) {

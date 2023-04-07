@@ -4,12 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentEditProfileBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class EditUserInfoFragment: BaseFragment() {
@@ -41,5 +47,35 @@ class EditUserInfoFragment: BaseFragment() {
             lifecycleScope.launch { viewModel.logout() }
             findNavController().navigate(R.id.action_editUserInfoFragment_to_appActivity)
         }
+        lifecycleScope.launch { setUserInfo() }
+    }
+
+    private suspend fun setUserInfo(){
+        val user = lifecycleScope.async(Dispatchers.IO) {
+            viewModel.getUserInfo()
+        }.await()
+
+        binding.loginEdittext.setText(user.login)
+        binding.mailEdittext.setText(user.email)
+        loadImage(getImage(null), binding.profileImageview)
+    }
+
+
+    private fun loadImage(image: Int?, imageView: ImageView) {
+        Glide.with(binding.root)
+            .load(image)
+            .centerCrop()
+            .transform(RoundedCorners(500))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(imageView)
+    }
+
+    private fun getImage(image: String?): Int? {
+        val name = "green"
+        return context?.resources?.getIdentifier(
+            name,
+            "drawable",
+            context?.packageName
+        )
     }
 }

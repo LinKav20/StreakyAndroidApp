@@ -61,6 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
+                android:enabled="false"
+
                 android:layout_marginStart="@dimen/layout_margin"
                 android:layout_marginEnd="@dimen/layout_margin"
                 android:layout_marginTop="60dp"
@@ -80,6 +82,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:enabled="false"
 
                 android:layout_margin="@dimen/layout_margin"
 
