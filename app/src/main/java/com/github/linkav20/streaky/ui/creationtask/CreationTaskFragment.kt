@@ -1,25 +1,23 @@
 package com.github.linkav20.streaky.ui.creationtask
 
-import android.app.Activity
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
+import android.app.*
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.base.ImageType
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
+import com.github.linkav20.streaky.ui.creationtask.notifications.RemindersManager
 import com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter.RepeatDayAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -66,7 +64,10 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
                 }
                 viewModel.snackBar(binding.root, message)
                 // TODO
-                if (message == "ok") findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
+                if (message == "ok") {
+                    findNavController().navigate(R.id.action_creation_fragment_to_mainFragment)
+                    if (binding.notifySwitcher.isChecked) setDailyNotify(binding.notifyButton.text.toString())
+                }
             }
         }
 
@@ -258,4 +259,19 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
         viewModel.setResourceImageWithGlide(binding.root, image, imageView, 100)
     }
 
+    private fun setDailyNotify(value: String) {
+        Log.d("WORK", "there ${value}")
+        createNotificationsChannels()
+        RemindersManager.startReminder(requireContext(), value)
+    }
+
+    private fun createNotificationsChannels() {
+        val channel = NotificationChannel(
+            "CHANNEL",
+            "CHANNEL",
+            NotificationManager.IMPORTANCE_HIGH
+        )
+        getSystemService(requireContext(), NotificationManager::class.java)
+            ?.createNotificationChannel(channel)
+    }
 }

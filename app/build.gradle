@@ -78,6 +78,8 @@ dependencies {
     implementation libs.retrofit
     implementation libs.retrofitGson
 
+    implementation libs.workoutManager
+
     implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
 
     implementation project(':network')

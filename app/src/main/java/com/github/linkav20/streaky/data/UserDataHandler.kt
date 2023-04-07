@@ -58,8 +58,6 @@ object UserDataHandler {
         val notifyTime = if (creationForm.isNotify) creationForm.notifyTime != null else true
         val repeat = creationForm.repeat.firstOrNull { it.chosen } != null
         val punishment = checkIfNotEmpty(creationForm.punishment)
-        val obs1 = checkIfNotEmpty(creationForm.observer1)
-        val obs2 = checkIfNotEmpty(creationForm.observer2)
 
         // TODO some mistake message
         var message = if (!title) "Title cannot be empty"
@@ -67,11 +65,9 @@ object UserDataHandler {
         else if (!notifyTime) "Notify time cannot be empty"
         else if (!repeat) "You cannot repeat task never"
         else if (!punishment) "Punishment cannot be empty"
-        else if (!obs1) "You need to add friend as observer"
-        else if (!obs2) "You need to add stranger as observer"
         else "Something goes wrong"
 
-        val result = title && deadline && notifyTime && repeat && punishment && obs1 && obs2
+        val result = title && deadline && notifyTime && repeat && punishment
         if (result) message = "ok"
         return TmpResultModel(result, message)
     }
