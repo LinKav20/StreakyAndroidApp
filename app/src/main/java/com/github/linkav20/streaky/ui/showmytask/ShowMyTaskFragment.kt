@@ -1,7 +1,6 @@
 package com.github.linkav20.streaky.ui.showmytask
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,23 +12,18 @@ import androidx.navigation.fragment.findNavController
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener
-import com.applandeo.materialcalendarview.listeners.OnDayLongClickListener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.github.linkav20.streaky.R
-import com.github.linkav20.streaky.data.Dates
 import com.github.linkav20.streaky.databinding.FragmentShowMyTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.blurEffectInShowTasksFragment
 import com.github.linkav20.streaky.ui.creationtask.model.ImageType
-import com.github.linkav20.streaky.ui.mytaskslist.MyTaskListViewModel
-import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListComponent
 import com.github.linkav20.streaky.ui.showmytask.model.TaskUIModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.util.*
 
 
 class ShowMyTaskFragment : BaseFragment() {

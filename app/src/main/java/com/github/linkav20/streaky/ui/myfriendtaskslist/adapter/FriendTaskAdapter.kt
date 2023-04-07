@@ -5,7 +5,6 @@ import android.view.Window
 import androidx.recyclerview.widget.DiffUtil
 import com.github.linkav20.streaky.ui.myfriendtaskslist.MyFriendTasksListFragment
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUI
-import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class FriendTaskAdapter(

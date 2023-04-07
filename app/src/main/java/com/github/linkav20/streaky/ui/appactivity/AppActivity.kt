@@ -1,6 +1,5 @@
 package com.github.linkav20.streaky.ui.appactivity
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Window
@@ -16,9 +15,6 @@ import com.github.linkav20.streaky.databinding.*
 import com.github.linkav20.streaky.ui.mainauth.MainAuthFragment
 import com.github.linkav20.streaky.ui.mainnavcontroller.MainNavControllerFragment
 import com.github.linkav20.streaky.ui.splashscreen.SplashScreenFragment
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD
-import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

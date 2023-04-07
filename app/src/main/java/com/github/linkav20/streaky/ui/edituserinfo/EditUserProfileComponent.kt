@@ -1,4 +1,4 @@
-package com.github.linkav20.streaky.ui.mytaskslist
+package com.github.linkav20.streaky.ui.edituserinfo
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -14,9 +14,9 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 
 
-@Component(modules = [MyTasksListModule::class])
+@Component(modules = [EditUserProfileModule::class])
 @ScreenScope
-interface MyTasksListComponent {
+interface EditUserProfileComponent {
     fun viewModelFactory(): ViewModelFactory
 
     @Component.Builder
@@ -27,23 +27,22 @@ interface MyTasksListComponent {
         @BindsInstance
         fun appContext(context: Context): Builder
 
-        fun build(): MyTasksListComponent
+        fun build(): EditUserProfileComponent
     }
 
     companion object {
         fun create() = with(DI.appComponent) {
-            DaggerMyTasksListComponent.builder().appContext(DI.appComponent.appContext())
+            DaggerEditUserProfileComponent.builder().appContext(DI.appComponent.appContext())
                 .api(DI.networkComponent.api()).build()
         }
     }
 }
 
-
 @Module
-abstract class MyTasksListModule {
+abstract class EditUserProfileModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MyTaskListViewModel::class)
-    abstract fun myTasksViewModel(viewModel: MyTaskListViewModel): ViewModel
+    @ViewModelKey(EditUserInfoViewModel::class)
+    abstract fun editUserInfoViewModel(viewModel: EditUserInfoViewModel): ViewModel
 }

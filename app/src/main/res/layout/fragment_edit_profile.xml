@@ -46,34 +46,61 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
+                android:inputType="textEmailAddress|textPersonName"
+                android:lines="1"
+
+                android:maxLines="1"
+
                 app:layout_constraintTop_toTopOf="parent"
                 tools:background="@color/orange" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/login_edittext"
+                style="@style/blackEdittext"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="@dimen/layout_margin"
                 android:layout_marginEnd="@dimen/layout_margin"
                 android:layout_marginTop="80dp"
+
+                android:inputType="textEmailAddress|textPersonName"
+                android:lines="1"
+
+                android:maxLines="1"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_imageview" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/mail_edittext"
+                style="@style/blackEdittext"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="@dimen/layout_margin"
+
+                android:inputType="textEmailAddress|textPersonName"
+                android:lines="1"
+
+                android:maxLines="1"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_edittext" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/text_edittext"
+                style="@style/blackEdittext"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="@dimen/layout_margin"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mail_edittext" />

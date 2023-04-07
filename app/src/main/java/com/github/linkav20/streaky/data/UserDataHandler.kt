@@ -1,6 +1,5 @@
 package com.github.linkav20.streaky.data
 
-import android.util.Log
 import com.github.linkav20.streaky.ui.creationtask.model.CreationForm
 import com.github.linkav20.streaky.utils.models.TmpResultModel
 

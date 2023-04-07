@@ -7,8 +7,6 @@ import com.github.linkav20.streaky.DI
 import com.github.linkav20.streaky.di.ScreenScope
 import com.github.linkav20.streaky.di.ViewModelFactory
 import com.github.linkav20.streaky.di.ViewModelKey
-import com.github.linkav20.streaky.ui.mytaskslist.DaggerMyTasksListComponent
-import com.github.linkav20.streaky.ui.mytaskslist.MyTaskListViewModel
 import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component

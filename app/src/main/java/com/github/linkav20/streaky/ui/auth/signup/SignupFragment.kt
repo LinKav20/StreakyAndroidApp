@@ -13,7 +13,6 @@ import com.github.linkav20.streaky.databinding.FragmentSignupBinding
 import com.github.linkav20.streaky.ui.auth.AuthComponent
 import com.github.linkav20.streaky.ui.auth.AuthViewModel
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 

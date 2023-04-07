@@ -12,7 +12,6 @@ import com.github.linkav20.streaky.databinding.FragmentChangePasswordBinding
 import com.github.linkav20.streaky.ui.auth.AuthComponent
 import com.github.linkav20.streaky.ui.auth.AuthViewModel
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class ChangePasswordFragment : BaseFragment() {

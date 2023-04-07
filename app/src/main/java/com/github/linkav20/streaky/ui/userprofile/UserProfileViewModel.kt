@@ -8,8 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.fake_network.FakeApi
-import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
-import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
 import com.github.linkav20.streaky.ui.userprofile.model.NotidicationModel
 import com.github.linkav20.streaky.ui.userprofile.model.Notification
 import com.github.linkav20.streaky.ui.userprofile.model.NotificationInProgress

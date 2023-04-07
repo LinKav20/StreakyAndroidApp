@@ -4,11 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentMainNavControllerBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 

@@ -1,7 +1,6 @@
 package com.github.linkav20.streaky.ui.auth.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.github.linkav20.streaky.ui.appactivity.AppActivity
 import com.github.linkav20.streaky.ui.auth.AuthComponent
 import com.github.linkav20.streaky.ui.auth.AuthViewModel
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 

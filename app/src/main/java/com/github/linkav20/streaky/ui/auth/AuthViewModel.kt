@@ -7,7 +7,6 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
-import com.github.linkav20.network.models.UserLoginFormBody
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.utils.Utils
@@ -65,7 +64,7 @@ class AuthViewModel @Inject constructor(
 
         // TODO handling error
 
-        return isCreatesta
+        return isCreate
     }
 
     fun checkEmail(email: String?): Boolean {

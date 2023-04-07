@@ -8,17 +8,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentEditProfileBinding
-import com.github.linkav20.streaky.databinding.FragmentTasksListBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.github.linkav20.streaky.ui.mytaskslist.MyTaskListViewModel
-import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListComponent
-import com.github.linkav20.streaky.ui.mytaskslist.OnItemCLickListener
 
 class EditUserInfoFragment: BaseFragment() {
 
-    /*private val component by lazy { MyTasksListComponent.create() }
+    private val component by lazy { EditUserProfileComponent.create() }
 
-    private val viewModel by viewModels<MyTaskListViewModel> { component.viewModelFactory() }*/
+    private val viewModel by viewModels<EditUserInfoViewModel> { component.viewModelFactory() }
 
     lateinit var binding: FragmentEditProfileBinding
 

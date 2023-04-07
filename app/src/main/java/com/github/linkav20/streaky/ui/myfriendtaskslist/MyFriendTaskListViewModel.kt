@@ -7,12 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
-import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUI
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUILoader
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUIModel
-import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
-import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUIModel
 import com.github.linkav20.streaky.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
