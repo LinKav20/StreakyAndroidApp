@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentEditProfileBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
+import kotlinx.coroutines.launch
 
 class EditUserInfoFragment: BaseFragment() {
 
@@ -34,6 +36,10 @@ class EditUserInfoFragment: BaseFragment() {
         }
         binding.changePasswordButton.setOnClickListener {
             findNavController().navigate(R.id.action_editUserInfoFragment_to_changePasswordFragment2)
+        }
+        binding.logoutButton.setOnClickListener {
+            lifecycleScope.launch { viewModel.logout() }
+            findNavController().navigate(R.id.action_editUserInfoFragment_to_appActivity)
         }
     }
 }

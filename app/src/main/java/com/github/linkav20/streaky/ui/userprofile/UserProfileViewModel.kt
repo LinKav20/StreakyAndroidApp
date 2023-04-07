@@ -11,6 +11,7 @@ import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.userprofile.model.NotidicationModel
 import com.github.linkav20.streaky.ui.userprofile.model.Notification
 import com.github.linkav20.streaky.ui.userprofile.model.NotificationInProgress
+import com.github.linkav20.streaky.ui.userprofile.model.UserUIForm
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,6 +27,10 @@ class UserProfileViewModel @Inject constructor(
 
     init {
         initData()
+    }
+
+    suspend fun getUserInfo() : UserUIForm {
+        return UserUIForm("Flinkou", null, 5, 10, 1)
     }
 
     private fun getLoaders() = IntRange(1, 6).map { NotificationInProgress }

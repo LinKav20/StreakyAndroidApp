@@ -12,7 +12,9 @@
         android:id="@+id/profile_image_layout"
         android:layout_width="@dimen/profile_image_size"
         android:layout_height="@dimen/profile_image_size"
-        android:layout_margin="66dp"
+
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="60dp"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -209,9 +211,11 @@
         android:layout_height="46dp"
 
         android:layout_margin="@dimen/layout_margin"
+
+        android:src="@drawable/ic_back_arrow_black"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:background="@color/lavender_light" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/notification_label"
