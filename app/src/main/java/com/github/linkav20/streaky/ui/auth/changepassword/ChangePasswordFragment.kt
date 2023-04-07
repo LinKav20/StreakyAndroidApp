@@ -45,8 +45,8 @@ class ChangePasswordFragment : BaseFragment() {
         val passwordRepeat = binding.repeatPasswordEdittext.text.toString()
 
         if (viewModel.checkPassword(password, passwordRepeat))
-            //gotoLogin()
-            findNavController().popBackStack()
+            gotoLogin()
+            //findNavController().popBackStack()
         else {
             viewModel.snackBar(
                 binding.root,

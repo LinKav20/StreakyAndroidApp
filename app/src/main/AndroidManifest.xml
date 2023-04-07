@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.linkav20.streaky">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -13,9 +14,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:windowSoftInputMode="adjustPan|adjustResize"
         android:supportsRtl="true"
         android:theme="@style/Theme.Streaky"
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="adjustPan|adjustResize"
         tools:targetApi="31">
         <activity
             android:name=".ui.appactivity.AppActivity"

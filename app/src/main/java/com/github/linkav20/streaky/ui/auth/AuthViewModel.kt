@@ -7,6 +7,7 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.network.models.UserLoginFormBody
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.utils.Utils
@@ -16,6 +17,7 @@ import javax.inject.Inject
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES as USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN as USER_PREFERENCES_LOGIN
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASSWORD as USER_PREFERENCES_PASSWORD
+
 
 class AuthViewModel @Inject constructor(
     private val context: Context,
@@ -27,10 +29,7 @@ class AuthViewModel @Inject constructor(
     suspend fun login(login: String?, password: String?): Boolean {
         if (!UserDataHandler.checkDataFromLoginForm(login, password)) return false
 
-        val isExist = viewModelScope.async(Dispatchers.IO) {
-            //api.isExist(login!!, password!!)
-            FakeApi.isExist(login!!, password!!)
-        }.await()
+        val isExist = checkIsExistInServer(login!!, password!!)
 
         if (isExist) {
             return try {
@@ -41,8 +40,6 @@ class AuthViewModel @Inject constructor(
                 false
             }
         }
-
-        // TODO handle error
 
         return false
     }
@@ -68,7 +65,7 @@ class AuthViewModel @Inject constructor(
 
         // TODO handling error
 
-        return isCreate
+        return isCreatesta
     }
 
     fun checkEmail(email: String?): Boolean {
@@ -102,4 +99,10 @@ class AuthViewModel @Inject constructor(
         tag: String, value: String
     ) = viewModelScope.async(Dispatchers.IO) { preferences.putString(tag, value) }.await()
 
+    private suspend fun checkIsExistInServer(login: String, password: String) =
+        viewModelScope.async(Dispatchers.IO) {
+            //val response = api.login(UserLoginFormBody(login, password))
+            //response.isSuccessful
+            FakeApi.isExist(login, password)
+        }.await()
 }

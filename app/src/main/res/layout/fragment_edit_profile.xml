@@ -20,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_margin">
+            android:layout_marginTop="60dp">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/back_arrow_button"

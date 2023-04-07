@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Component(modules = [NetworkModule::class])
@@ -20,7 +21,7 @@ interface NetworkComponent {
 @Module
 abstract class NetworkModule {
     companion object {
-        private const val base_url = "http://shans.d2.i-partner.ru/"
+        private const val base_url = "http://localhost:8080/"
 
         @Provides
         @Singleton
@@ -29,7 +30,9 @@ abstract class NetworkModule {
                 .baseUrl(base_url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(
-                    OkHttpClient.Builder()
+                    OkHttpClient.Builder().connectTimeout(5, TimeUnit.MINUTES)
+                        .writeTimeout(5, TimeUnit.MINUTES)
+                        .readTimeout(5, TimeUnit.MINUTES)
                         .addInterceptor(HttpLoggingInterceptor().apply {
                             level =
                                 if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY

@@ -43,5 +43,5 @@ abstract class AppActivityModule {
     @Binds
     @IntoMap
     @ViewModelKey(AppActivityViewModel::class)
-    abstract fun loginViewModel(viewModel: AppActivityViewModel): ViewModel
+    abstract fun appViewModel(viewModel: AppActivityViewModel): ViewModel
 }
