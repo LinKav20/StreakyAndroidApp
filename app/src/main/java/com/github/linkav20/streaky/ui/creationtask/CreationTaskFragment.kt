@@ -18,7 +18,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withC
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentCreationTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
-import com.github.linkav20.streaky.ui.creationtask.model.ImageType
+import com.github.linkav20.streaky.ui.base.ImageType
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
 import com.github.linkav20.streaky.ui.creationtask.repeatdadyadapter.RepeatDayAdapter
 import kotlinx.coroutines.Dispatchers
@@ -249,34 +249,13 @@ class CreationTaskFragment : BaseFragment(), OnItemClickedListener {
 
     private fun setImageOnResult(result: Boolean, imageView: ImageView) {
         val type = if (result) ImageType.SUCCESS else ImageType.ERROR
-        val image = getImage(type)
-        loadImage(image, imageView)
+        val image = viewModel.getImageByType(type, requireContext())
+        viewModel.setResourceImageWithGlide(binding.root, image, imageView, 100)
     }
 
     private fun setLoadImage(imageView: ImageView) {
-        val image = getImage(ImageType.LOAD)
-        loadImage(image, imageView)
+        val image = viewModel.getImageByType(ImageType.LOAD, requireContext())
+        viewModel.setResourceImageWithGlide(binding.root, image, imageView, 100)
     }
 
-    private fun loadImage(image: Int?, imageView: ImageView) {
-        Glide.with(binding.root)
-            .load(image)
-            .centerCrop()
-            .transform(RoundedCorners(100))
-            .transition(withCrossFade())
-            .into(imageView)
-    }
-
-    private fun getImage(type: ImageType): Int? {
-        val name = when (type) {
-            ImageType.LOAD -> "rounded_corners_white"
-            ImageType.ERROR -> "red"
-            ImageType.SUCCESS -> "green"
-        }
-        return context?.resources?.getIdentifier(
-            name,
-            "drawable",
-            context?.packageName
-        )
-    }
 }

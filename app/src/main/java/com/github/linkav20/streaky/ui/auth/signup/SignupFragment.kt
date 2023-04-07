@@ -62,7 +62,8 @@ class SignupFragment : BaseFragment() {
         else {
             viewModel.snackBar(
                 binding.root,
-                resources.getString(R.string.failed_try_again)
+                resources.getString(R.string.failed_try_again),
+                resources
             )
         }
     }

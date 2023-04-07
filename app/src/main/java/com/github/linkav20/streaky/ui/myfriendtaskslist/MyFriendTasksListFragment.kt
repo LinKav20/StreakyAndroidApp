@@ -19,11 +19,11 @@ class MyFriendTasksListFragment : BaseFragment() {
 
     private val component by lazy { MyFriendTasksListComponent.create() }
 
-    private val viewModel by viewModels<MyFriendTaskListViewModel> { component.viewModelFactory() }
+    val viewModel by viewModels<MyFriendTaskListViewModel> { component.viewModelFactory() }
 
     lateinit var binding: FragmentFriendsTasksListBinding
 
-    lateinit private var adapter: FriendTaskAdapter
+    private lateinit var adapter: FriendTaskAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +41,7 @@ class MyFriendTasksListFragment : BaseFragment() {
     }
 
     fun onItemClickListener(id: Long) {
-        viewModel.snackBar(binding.root, "Clicked on item with ID: $id")
+        viewModel.snackBar(binding.root, "Clicked on item with ID: $id", resources)
     }
 
     private fun setAdapter() {
@@ -132,17 +132,18 @@ class MyFriendTasksListFragment : BaseFragment() {
                             val needToNotify = viewModel.isSeen(viewHolder.bindingAdapterPosition)
                             if (!needToNotify) {
                                 adapter.notifyItemChanged(viewHolder.bindingAdapterPosition)
-                                viewModel.snackBar(root, "Not competes, cannot be seen")
+                                viewModel.snackBar(root, "Not competes, cannot be seen", resources)
                             } else
-                                viewModel.snackBar(root, "Seen")
+                                viewModel.snackBar(root, "Seen", resources)
                         }
+
                         ItemTouchHelper.LEFT -> {
                             val needToNotify = viewModel.isNotify(viewHolder.bindingAdapterPosition)
                             adapter.notifyItemChanged(viewHolder.bindingAdapterPosition)
                             if (needToNotify) {
-                                viewModel.snackBar(root, "Notify")
+                                viewModel.snackBar(root, "Notify", resources)
                             } else
-                                viewModel.snackBar(root, "Notify is not nessasry")
+                                viewModel.snackBar(root, "Notify is not nessasry", resources)
                         }
                     }
                 }

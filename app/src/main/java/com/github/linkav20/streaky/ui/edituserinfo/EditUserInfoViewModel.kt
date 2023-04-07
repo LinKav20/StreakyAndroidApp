@@ -2,9 +2,9 @@ package com.github.linkav20.streaky.ui.edituserinfo
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.edituserinfo.model.UserUIModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -16,7 +16,7 @@ import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASS
 class EditUserInfoViewModel @Inject constructor(
     private val context: Context,
     private val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     suspend fun logout() {
         // api.logout

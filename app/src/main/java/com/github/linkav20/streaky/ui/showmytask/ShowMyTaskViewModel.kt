@@ -1,18 +1,17 @@
 package com.github.linkav20.streaky.ui.showmytask
 
 import android.content.Context
-import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.applandeo.materialcalendarview.CalendarDay
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.data.Dates
+import com.github.linkav20.streaky.ui.base.BaseViewModel
+import com.github.linkav20.streaky.ui.base.TaskStatus
 import com.github.linkav20.streaky.ui.showmytask.model.ShowDayInfoModel
 import com.github.linkav20.streaky.ui.showmytask.model.TaskUIModel
-import com.github.linkav20.streaky.utils.Utils
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
@@ -20,7 +19,7 @@ import javax.inject.Inject
 class ShowMyTaskViewModel @Inject constructor(
     val context: Context,
     val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _showDayData = MutableLiveData<ShowDayInfoModel>()
     val showDayData: LiveData<ShowDayInfoModel> = _showDayData
@@ -29,10 +28,6 @@ class ShowMyTaskViewModel @Inject constructor(
         viewModelScope.launch {
             _showDayData.postValue(getShowDayModel(Dates.getCurrentTime()))
         }
-    }
-
-    fun snackBar(view: View, text: String) {
-        Utils.showSnackBar(view, text, context.resources)
     }
 
     suspend fun getTaskInfo(id: Int): TaskUIModel {
@@ -67,8 +62,8 @@ class ShowMyTaskViewModel @Inject constructor(
         return ShowDayInfoModel(
             Dates.convertDateToString(date),
             TaskStatus.DONE,
-            null,
-            null
+            false,
+            true
         )
     }
 

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.ScrollView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,14 +11,11 @@ import androidx.navigation.fragment.findNavController
 import com.applandeo.materialcalendarview.CalendarDay
 import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.FragmentShowMyTaskBinding
 import com.github.linkav20.streaky.ui.base.BaseFragment
 import com.github.linkav20.streaky.ui.creationtask.blurEffectInShowTasksFragment
-import com.github.linkav20.streaky.ui.creationtask.model.ImageType
+import com.github.linkav20.streaky.ui.base.ImageType
 import com.github.linkav20.streaky.ui.showmytask.model.TaskUIModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -64,9 +60,18 @@ class ShowMyTaskFragment : BaseFragment() {
         binding.friendShimmerLayout.startShimmer()
         viewModel.showDayData.observe(viewLifecycleOwner) {
             binding.dayTextview.text = it.date
-            loadImage(getImage(it.taskStatus), binding.friendStatusImageview)
-            loadImage(getImage(it.taskStatus), binding.strangerStatusImageview)
-            loadImage(getImageIsDone(it.taskStatus), binding.isDoneImage)
+            viewModel.setResourceImageWithGlide(
+                binding.root, viewModel.getImageBySeen(it.friendStatus, requireContext()),
+                binding.friendStatusImageview, 10
+            )
+            viewModel.setResourceImageWithGlide(
+                binding.root, viewModel.getImageBySeen(it.strangerStatus, requireContext()),
+                binding.strangerStatusImageview, 10
+            )
+            viewModel.setResourceImageWithGlide(
+                binding.root, viewModel.getImageByStatus(it.taskStatus, requireContext()),
+                binding.isDoneImage, 10
+            )
             binding.strangerShimmerLayout.stopShimmer()
             binding.strangerShimmerLayout.hideShimmer()
             binding.friendShimmerLayout.stopShimmer()
@@ -110,7 +115,11 @@ class ShowMyTaskFragment : BaseFragment() {
     private fun loadArgs() {
         val id = arguments?.getInt("id")
         if (id == null) {
-            viewModel.snackBar(binding.root, resources.getString(R.string.something_goes_wrong))
+            viewModel.snackBar(
+                binding.root,
+                resources.getString(R.string.something_goes_wrong),
+                resources
+            )
             findNavController().popBackStack()
             return
         }
@@ -136,57 +145,13 @@ class ShowMyTaskFragment : BaseFragment() {
         binding.friendEdittext.setText(task.friendLogin)
         binding.strangerEdittext.setText(task.strangerLogin)
         setDoneDates(task.dates)
-        loadImage(getImage(ImageType.SUCCESS), binding.strangerImageview)
-        loadImage(getImage(ImageType.SUCCESS), binding.friendImageview)
-    }
-
-    private fun loadImage(image: Int?, imageView: ImageView) {
-        Glide.with(binding.root)
-            .load(image)
-            .centerCrop()
-            .transform(RoundedCorners(100))
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(imageView)
-    }
-
-    private fun getImage(type: ImageType): Int? {
-        val name = when (type) {
-            ImageType.LOAD -> "rounded_corners_white"
-            ImageType.ERROR -> "red"
-            ImageType.SUCCESS -> "green"
-        }
-        return context?.resources?.getIdentifier(
-            name,
-            "drawable",
-            context?.packageName
+        viewModel.setResourceImageWithGlide(
+            binding.root, viewModel.getImageByType(ImageType.SUCCESS, requireContext()),
+            binding.strangerImageview, 100
         )
-    }
-
-    private fun getImage(type: TaskStatus): Int? {
-        val name = when (type) {
-            TaskStatus.DONE -> "red"
-            TaskStatus.MISSED -> "red"
-            TaskStatus.FUTURE -> "red"
-            TaskStatus.NOT_NEED -> "red"
-        }
-        return context?.resources?.getIdentifier(
-            name,
-            "drawable",
-            context?.packageName
-        )
-    }
-
-    private fun getImageIsDone(type: TaskStatus): Int? {
-        val name = when (type) {
-            TaskStatus.DONE -> "ic_orange_star"
-            TaskStatus.MISSED -> "ic_lavender_star"
-            TaskStatus.FUTURE -> "ic_lavender_star"
-            TaskStatus.NOT_NEED -> "ic_lavender_star"
-        }
-        return context?.resources?.getIdentifier(
-            name,
-            "drawable",
-            context?.packageName
+        viewModel.setResourceImageWithGlide(
+            binding.root, viewModel.getImageByType(ImageType.SUCCESS, requireContext()),
+            binding.friendImageview, 100
         )
     }
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.fake_network.FakeApi
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUIModel
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class MyTaskListViewModel @Inject constructor(
     val context: Context,
     val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _data = MutableLiveData<List<MyTaskUI>>()
     val data: LiveData<List<MyTaskUI>> = _data

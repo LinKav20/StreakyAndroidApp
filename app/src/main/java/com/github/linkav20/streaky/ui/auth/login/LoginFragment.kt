@@ -51,7 +51,8 @@ class LoginFragment : BaseFragment() {
             clearFields()
             viewModel.snackBar(
                 binding.root,
-                resources.getString(R.string.failed_try_again)
+                resources.getString(R.string.failed_try_again),
+                resources
             )
         }
     }

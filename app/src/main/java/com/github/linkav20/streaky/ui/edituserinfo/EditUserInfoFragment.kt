@@ -57,25 +57,13 @@ class EditUserInfoFragment: BaseFragment() {
 
         binding.loginEdittext.setText(user.login)
         binding.mailEdittext.setText(user.email)
-        loadImage(getImage(null), binding.profileImageview)
-    }
-
-
-    private fun loadImage(image: Int?, imageView: ImageView) {
-        Glide.with(binding.root)
-            .load(image)
-            .centerCrop()
-            .transform(RoundedCorners(500))
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(imageView)
-    }
-
-    private fun getImage(image: String?): Int? {
-        val name = "green"
-        return context?.resources?.getIdentifier(
-            name,
-            "drawable",
-            context?.packageName
+        viewModel.setResourceImageWithGlide(
+            binding.root,
+            viewModel.getImageForAvatar("green", requireContext()),
+            binding.profileImageview,
+            500
         )
     }
+
+
 }

@@ -12,6 +12,7 @@ import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.data.Dates
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.creationtask.model.CreationForm
 import com.github.linkav20.streaky.ui.creationtask.model.RepeatingDayModel
 import com.github.linkav20.streaky.ui.creationtask.model.User
@@ -26,7 +27,7 @@ import javax.inject.Inject
 class CreationTaskViewModel @Inject constructor(
     private val context: Context,
     private val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _creationForm = MutableLiveData<CreationForm>()
     val creationForm: LiveData<CreationForm> = _creationForm

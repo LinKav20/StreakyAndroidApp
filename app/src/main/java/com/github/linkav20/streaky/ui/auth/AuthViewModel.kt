@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -21,7 +22,7 @@ import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_PASS
 class AuthViewModel @Inject constructor(
     private val context: Context,
     private val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val TAG = "AUTH"
 
@@ -77,10 +78,6 @@ class AuthViewModel @Inject constructor(
         UserDataHandler.checkPasswordField(password)
                 && UserDataHandler.checkIfNotEmpty(repeatedPassword)
                 && password == repeatedPassword
-
-    fun snackBar(view: View, text: String) {
-        Utils.showSnackBar(view, text, context.resources)
-    }
 
     private suspend fun saveUserInfo(login: String, password: String) {
         val editor = getSharedPreferencesEditor() ?: throw Exception("Cannot save user info")

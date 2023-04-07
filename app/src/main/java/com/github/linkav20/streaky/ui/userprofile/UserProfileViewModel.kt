@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.fake_network.FakeApi
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.userprofile.model.NotidicationModel
 import com.github.linkav20.streaky.ui.userprofile.model.Notification
 import com.github.linkav20.streaky.ui.userprofile.model.NotificationInProgress
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class UserProfileViewModel @Inject constructor(
     val context: Context,
     val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _notification = MutableLiveData<List<Notification>>()
     val notification: LiveData<List<Notification>> = _notification

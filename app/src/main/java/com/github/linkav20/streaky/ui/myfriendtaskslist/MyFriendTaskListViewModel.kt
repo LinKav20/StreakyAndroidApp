@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUI
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUILoader
 import com.github.linkav20.streaky.ui.myfriendtaskslist.models.FriendTaskUIModel
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class MyFriendTaskListViewModel @Inject constructor(
     val context: Context,
     val api: Api
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _data = MutableLiveData<List<FriendTaskUI>>()
     val data: LiveData<List<FriendTaskUI>> = _data
@@ -48,10 +49,6 @@ class MyFriendTaskListViewModel @Inject constructor(
             //_data.postValue(tasks)
             _data.postValue(getFakeData())
         }
-    }
-
-    fun snackBar(view: View, text: String) {
-        Utils.showSnackBar(view, text, context.resources)
     }
 
     fun isSeen(id: Int): Boolean {
