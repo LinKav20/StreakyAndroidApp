@@ -12,6 +12,7 @@ import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUIModel
+import com.github.linkav20.streaky.ui.mytaskslist.models.TaskState
 import com.github.linkav20.streaky.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -48,9 +49,9 @@ class MyTaskListViewModel @Inject constructor(
     }
 
     private fun getFakeData() = listOf(
-        MyTaskUIModel(0, "Lol", true, false),
-        MyTaskUIModel(1, "Kekekkeke", true, false),
-        MyTaskUIModel(2, "--", true, true)
+        MyTaskUIModel(0, "Lol", TaskState.DONE,true, false),
+        MyTaskUIModel(1, "Kekekkeke", TaskState.FAILED,true, false),
+        MyTaskUIModel(2, "--", TaskState.IN_PROCESS, true, true)
     )
 
     private fun getLoaders() = IntRange(1, 6).map { MyTaskUILoading }

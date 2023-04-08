@@ -1,7 +1,10 @@
 package com.github.linkav20.streaky.ui.mytaskslist.adapter
 
 import android.content.Context
+import android.view.View
 import android.view.Window
+import androidx.core.content.ContextCompat
+import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.databinding.MyTaskItemBinding
 import com.github.linkav20.streaky.databinding.MyTaskItemLoadersBinding
 import com.github.linkav20.streaky.ui.creationtask.blurEffectInMyTasksFragment
@@ -9,6 +12,7 @@ import com.github.linkav20.streaky.ui.mytaskslist.MyTasksListFragment
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUI
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUILoading
 import com.github.linkav20.streaky.ui.mytaskslist.models.MyTaskUIModel
+import com.github.linkav20.streaky.ui.mytaskslist.models.TaskState
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
 object MyTasksDelegates {
@@ -34,6 +38,26 @@ object MyTasksDelegates {
 
             binding.mainLayout.setOnClickListener {
                 fragment.onItemClicked(item.id)
+            }
+
+            if (item.taskState == TaskState.DONE) {
+                binding.selectorLayout.visibility = View.GONE
+                binding.statusTextview.visibility = View.VISIBLE
+                binding.statusTextview.text = context.resources.getString(R.string.done)
+                binding.statusTextview.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.lavender
+                    )
+                )
+            }
+
+
+            if (item.taskState == TaskState.FAILED) {
+                binding.selectorLayout.visibility = View.GONE
+                binding.statusTextview.visibility = View.VISIBLE
+                binding.statusTextview.text = context.resources.getString(R.string.failed)
+                binding.statusTextview.setTextColor(ContextCompat.getColor(context, R.color.orange))
             }
 
             blurEffectInMyTasksFragment(binding.dayBlurview, fragment.binding, context, window)

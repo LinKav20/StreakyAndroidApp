@@ -60,6 +60,8 @@
     <string name="previous">prev</string>
     <string name="now">now</string>
     <string name="next">next</string>
+    <string name="done">DONE</string>
+    <string name="failed">FAILED</string>
     <string name="no_tasks">There\'no any tasks you need to observe</string>
 
     // Errors texts
