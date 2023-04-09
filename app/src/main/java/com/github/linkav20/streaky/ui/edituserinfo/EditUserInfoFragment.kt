@@ -59,7 +59,7 @@ class EditUserInfoFragment: BaseFragment() {
         binding.mailEdittext.setText(user.email)
         viewModel.setResourceImageWithGlide(
             binding.root,
-            viewModel.getImageForAvatar("green", requireContext()),
+            viewModel.getImageForAvatar("profile_image", requireContext()),
             binding.profileImageview,
             500
         )

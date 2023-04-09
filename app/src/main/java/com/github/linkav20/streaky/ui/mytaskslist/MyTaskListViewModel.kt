@@ -49,10 +49,14 @@ class MyTaskListViewModel @Inject constructor(
     }
 
     private fun getFakeData() = listOf(
-        MyTaskUIModel(0, "Lol", TaskState.DONE,true, false),
-        MyTaskUIModel(1, "Kekekkeke", TaskState.FAILED,true, false),
+        MyTaskUIModel(0, "Lol", TaskState.DONE, true, false),
+        MyTaskUIModel(1, "Kekekkeke", TaskState.FAILED, true, false),
         MyTaskUIModel(2, "--", TaskState.IN_PROCESS, true, true)
     )
+
+    private fun sortData(list: List<MyTaskUIModel>): List<MyTaskUIModel> {
+        return list.sortedBy { it.taskState }
+    }
 
     private fun getLoaders() = IntRange(1, 6).map { MyTaskUILoading }
 
@@ -65,7 +69,7 @@ class MyTaskListViewModel @Inject constructor(
             //val tasks = api.getAllTasks()
             // convert tasks to MyModel
             //_data.postValue(tasks)
-            _data.postValue(getFakeData())
+            _data.postValue(sortData(getFakeData()))
         }
     }
 

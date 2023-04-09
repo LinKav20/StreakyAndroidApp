@@ -1,11 +1,11 @@
 package com.github.linkav20.network.api
 
 import com.github.linkav20.network.models.UserLoginFormBody
-import com.github.linkav20.network.models.UserLoginFormRequest
-import retrofit2.Call
+import com.github.linkav20.network.models.UserLoginFormResponse
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface Api {
@@ -27,7 +27,9 @@ interface Api {
     suspend fun getRandomLogin(): String*/
 
     @POST("/sign_in")
-    suspend fun login(@Body body: UserLoginFormBody) : Response<UserLoginFormRequest>
+    suspend fun login(@Body body: UserLoginFormBody): Response<UserLoginFormResponse>
+
+    @POST("/")
+    suspend fun createTask(@Header("X-API-KEY") token: String)
 
 }
-

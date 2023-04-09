@@ -2,8 +2,7 @@ package com.github.linkav20.streaky.fake_network
 
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.network.models.UserLoginFormBody
-import com.github.linkav20.network.models.UserLoginFormRequest
-import retrofit2.Call
+import com.github.linkav20.network.models.UserLoginFormResponse
 import retrofit2.Response
 
 object FakeApi : Api {
@@ -38,7 +37,11 @@ object FakeApi : Api {
 
 
 
-    override suspend fun login(body: UserLoginFormBody): Response<UserLoginFormRequest> {
+    override suspend fun login(body: UserLoginFormBody): Response<UserLoginFormResponse> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun createTask(token: String) {
         TODO("Not yet implemented")
     }
 }

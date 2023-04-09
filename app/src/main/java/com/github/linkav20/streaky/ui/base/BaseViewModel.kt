@@ -55,6 +55,14 @@ open class BaseViewModel : ViewModel() {
 
     fun getImageForAvatar(name: String, context: Context) = getImageByName(name, context)
 
+    fun saveToken(token: String): Boolean {
+        return true
+    }
+
+    fun saveUserId(id: Int): Boolean {
+        return true
+    }
+
     private fun getImageByName(name: String, context: Context) =
         context.resources.getIdentifier(
             name,

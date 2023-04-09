@@ -1,7 +1,7 @@
 package com.github.linkav20.streaky.data
 
 import com.github.linkav20.streaky.ui.creationtask.model.CreationForm
-import com.github.linkav20.streaky.utils.models.TmpResultModel
+import com.github.linkav20.streaky.utils.model.TmpResultModel
 
 object UserDataHandler {
 

@@ -7,12 +7,15 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
+import com.github.linkav20.network.models.UserLoginFormBody
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.base.BaseViewModel
 import com.github.linkav20.streaky.utils.Utils
+import com.github.linkav20.streaky.utils.model.HttpStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import retrofit2.Response
 import javax.inject.Inject
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES as USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN as USER_PREFERENCES_LOGIN
@@ -97,8 +100,14 @@ class AuthViewModel @Inject constructor(
 
     private suspend fun checkIsExistInServer(login: String, password: String) =
         viewModelScope.async(Dispatchers.IO) {
-            //val response = api.login(UserLoginFormBody(login, password))
-            //response.isSuccessful
+            val response = api.login(UserLoginFormBody(login, password))
+            if (response.code() == HttpStatus.OK) {
+                val body = response.body()
+                if (body != null) {
+                    saveToken(body.token)
+                    saveUserId(body.id)
+                }
+            }
             FakeApi.isExist(login, password)
         }.await()
 }

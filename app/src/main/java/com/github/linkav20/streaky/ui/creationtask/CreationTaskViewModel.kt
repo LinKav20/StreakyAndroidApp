@@ -39,7 +39,7 @@ class CreationTaskViewModel @Inject constructor(
     suspend fun create(): String {
         val creation = creationForm.value ?: return "Failed"
         val result = UserDataHandler.checkCreationForm(creation)
-        if (result.isOk) {
+        if (result.result) {
             saveTask()
         }
         return result.message
