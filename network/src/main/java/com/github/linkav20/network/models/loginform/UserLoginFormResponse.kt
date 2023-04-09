@@ -1,4 +1,4 @@
-package com.github.linkav20.network.models
+package com.github.linkav20.network.models.loginform
 
 import com.google.gson.annotations.SerializedName
 

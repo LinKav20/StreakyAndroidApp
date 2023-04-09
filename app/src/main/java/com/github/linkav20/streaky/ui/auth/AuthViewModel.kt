@@ -3,19 +3,15 @@ package com.github.linkav20.streaky.ui.auth
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
-import com.github.linkav20.network.models.UserLoginFormBody
+import com.github.linkav20.network.models.loginform.UserLoginFormBody
 import com.github.linkav20.streaky.data.UserDataHandler
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.base.BaseViewModel
-import com.github.linkav20.streaky.utils.Utils
 import com.github.linkav20.streaky.utils.model.HttpStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import retrofit2.Response
 import javax.inject.Inject
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES as USER_PREFERENCES
 import com.github.linkav20.streaky.utils.SharedPreferences.USER_PREFERENCES_LOGIN as USER_PREFERENCES_LOGIN

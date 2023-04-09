@@ -14,7 +14,7 @@ class RepeatDayAdapter(
     val fragment: CreationTaskFragment,
     val context: Context,
     val window: Window
-) : ListAdapter<RepeatingDayModel, RecyclerView.ViewHolder>(DiffCallback()) {
+) : ListAdapter<RepeatingDayModel, RecyclerView.ViewHolder>(RepeatDayDiffCallback()) {
 
     private val TYPE_CHOSEN = 1
     private val TYPE_NOT_CHOSEN = 0

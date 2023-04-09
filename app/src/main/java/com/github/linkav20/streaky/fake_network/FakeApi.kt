@@ -1,8 +1,8 @@
 package com.github.linkav20.streaky.fake_network
 
 import com.github.linkav20.network.api.Api
-import com.github.linkav20.network.models.UserLoginFormBody
-import com.github.linkav20.network.models.UserLoginFormResponse
+import com.github.linkav20.network.models.loginform.UserLoginFormBody
+import com.github.linkav20.network.models.loginform.UserLoginFormResponse
 import retrofit2.Response
 
 object FakeApi : Api {

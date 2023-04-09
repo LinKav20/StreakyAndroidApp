@@ -12,10 +12,6 @@ import com.github.linkav20.streaky.ui.appactivity.AppActivity
 
 class AlarmReceiver : BroadcastReceiver() {
 
-    /**
-     * sends notification when receives alarm
-     * and then reschedule the reminder again
-     * */
     override fun onReceive(context: Context, intent: Intent) {
         val notificationManager = ContextCompat.getSystemService(
             context,
