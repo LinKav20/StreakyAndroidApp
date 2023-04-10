@@ -52,7 +52,7 @@ class ShowMyTaskViewModel @Inject constructor(
         }
     }
 
-    private fun getCalendarDateByCalendar(c: Calendar) = CalendarDay(c).apply {
+    private fun getCalendarDayByCalendar(c: Calendar) = CalendarDay(c).apply {
         labelColor = R.color.white
         backgroundResource = R.drawable.calendar_selector
     }
@@ -75,9 +75,9 @@ class ShowMyTaskViewModel @Inject constructor(
         val calendar3 = Calendar.getInstance()
         calendar3[Calendar.DAY_OF_MONTH] = 4
         val list = listOf(
-            getCalendarDateByCalendar(calendar1),
-            getCalendarDateByCalendar(calendar2),
-            getCalendarDateByCalendar(calendar3)
+            getCalendarDayByCalendar(calendar1),
+            getCalendarDayByCalendar(calendar2),
+            getCalendarDayByCalendar(calendar3)
         )
         return list
     }

@@ -3,13 +3,12 @@ package com.github.linkav20.streaky.ui.userprofile
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.linkav20.network.api.Api
 import com.github.linkav20.streaky.R
 import com.github.linkav20.streaky.fake_network.FakeApi
 import com.github.linkav20.streaky.ui.base.BaseViewModel
-import com.github.linkav20.streaky.ui.userprofile.model.NotidicationModel
+import com.github.linkav20.streaky.ui.userprofile.model.NotificationModel
 import com.github.linkav20.streaky.ui.userprofile.model.Notification
 import com.github.linkav20.streaky.ui.userprofile.model.NotificationInProgress
 import com.github.linkav20.streaky.ui.userprofile.model.UserUIForm
@@ -37,12 +36,12 @@ class UserProfileViewModel @Inject constructor(
     private fun getLoaders() = IntRange(1, 6).map { NotificationInProgress }
 
     private fun getFakeData() = listOf(
-        NotidicationModel(0, context.resources.getString(R.string.notification_lorem)),
-        NotidicationModel(1, context.resources.getString(R.string.notification_lorem)),
-        NotidicationModel(2, context.resources.getString(R.string.notification_lorem)),
-        NotidicationModel(3, context.resources.getString(R.string.notification_lorem)),
-        NotidicationModel(4, context.resources.getString(R.string.notification_lorem)),
-        NotidicationModel(5, context.resources.getString(R.string.notification_lorem))
+        NotificationModel(0, context.resources.getString(R.string.notification_lorem)),
+        NotificationModel(1, context.resources.getString(R.string.notification_lorem)),
+        NotificationModel(2, context.resources.getString(R.string.notification_lorem)),
+        NotificationModel(3, context.resources.getString(R.string.notification_lorem)),
+        NotificationModel(4, context.resources.getString(R.string.notification_lorem)),
+        NotificationModel(5, context.resources.getString(R.string.notification_lorem))
     )
 
     private fun initData() {

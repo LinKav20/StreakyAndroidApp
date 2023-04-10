@@ -1,3 +1,3 @@
 package com.github.linkav20.network.models.updateobserverdayform
 
-data class UpdateObserverDayFormRequest(val id:Int)
+data class UpdateObserverDayFormResponse(val id:Int)

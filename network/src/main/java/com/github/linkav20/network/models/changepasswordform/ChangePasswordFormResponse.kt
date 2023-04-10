@@ -1,3 +1,3 @@
 package com.github.linkav20.network.models.changepasswordform
 
-data class ChangePasswordFormRequest(val id: Int)
+data class ChangePasswordFormResponse(val id: Int)

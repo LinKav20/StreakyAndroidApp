@@ -1,3 +1,3 @@
 package com.github.linkav20.network.models.gettaskbyidform
 
-data class GetTaskByIdFormRequest(val id: Int)
+data class GetTaskByIdFormResponse(val id: Int)
